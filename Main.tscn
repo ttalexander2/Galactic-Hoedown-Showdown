@@ -6,7 +6,7 @@
 [ext_resource path="res://Bullet.tscn" type="PackedScene" id=4]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 321.352, 4.36122 )
+extents = Vector2( 1026.96, 4.36122 )
 
 [node name="Main" type="Node2D"]
 

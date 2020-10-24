@@ -1,7 +1,8 @@
 extends KinematicBody2D
 
-const ACCELERATION = 500
+const ACCELERATION = 250
 const MAX_SPEED = 500
+const SPEED = 30
 const FRICTION = 500
 const JUMP = -500
 const GRAVITY = 1000.0
@@ -92,7 +93,7 @@ func move_state(delta):
 		animationTree.set("parameters/Move/blend_position", input_vector)
 		#animationTree.set("parameters/Attack/blend_position", input_vector)
 		animationState.travel("Move")
-		velocity = velocity.move_toward(input_vector * MAX_SPEED, ACCELERATION * delta)
+		velocity = velocity.move_toward(input_vector * MAX_SPEED * delta * SPEED, ACCELERATION * delta)
 		
 		if direction - input_vector.x != 0:
 			#print(direction - input_vector.x)
