@@ -20,6 +20,7 @@ onready var animationPlayer = $AnimationPlayer
 onready var animationTree = $AnimationTree
 onready var animationState = animationTree.get("parameters/playback")
 export (PackedScene) var bullet 
+var flag = false
 
 # Declare member variables here. Examples:
 # var a = 2
@@ -38,10 +39,16 @@ var time_since_last_shot = 0;
 func _ready():
 
 	time_begin = OS.get_ticks_usec();
-
 	animationTree.active = true
 
-
+func _physics_process(delta):
+	match state:
+		MOVE:
+			move_state(delta)
+		ROLL:
+			pass
+		ATTACK:
+			attack_state(delta)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
@@ -66,7 +73,7 @@ func _process(delta):
 
 		
 func shoot():
-	print(BPM)
+	#print(BPM)
 	var shot = bullet.instance()
 	shot.set_direction(direction)
 	get_node("/root/Main").add_child(shot)
@@ -86,7 +93,12 @@ func move_state(delta):
 		#animationTree.set("parameters/Attack/blend_position", input_vector)
 		animationState.travel("Move")
 		velocity = velocity.move_toward(input_vector * MAX_SPEED, ACCELERATION * delta)
+		
+		if direction - input_vector.x != 0:
+			#print(direction - input_vector.x)
+			$Sprite.set_flip_h(!$Sprite.flip_h)
 		direction = input_vector.x
+		
 	else:
 		animationState.travel("Idle")
 		velocity = velocity.move_toward(Vector2.ZERO, FRICTION * delta)
@@ -101,6 +113,7 @@ func move_state(delta):
 	if Input.is_action_just_pressed("attack"):
 		#state = ATTACK
 		pass
+
 
 func attack_state(delta):
 	velocity = Vector2.ZERO

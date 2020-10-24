@@ -16,7 +16,6 @@ resource_name = "Idle_Left"
 [sub_resource type="Animation" id=4]
 resource_name = "Idle_Right"
 length = 0.8
-loop = true
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:frame")
 tracks/0/interp = 1
@@ -67,6 +66,20 @@ tracks/0/keys = {
 
 [sub_resource type="Animation" id=8]
 resource_name = "Run_Right"
+length = 0.6
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2, 4, 5, 6 ]
+}
 
 [sub_resource type="AnimationNodeAnimation" id=9]
 animation = "Idle_Left"
@@ -114,6 +127,7 @@ states/Idle/position = Vector2( -708.396, -19.6492 )
 states/Move/node = SubResource( 16 )
 states/Move/position = Vector2( -443.396, -19.6492 )
 transitions = [ "Idle", "Move", SubResource( 17 ), "Move", "Idle", SubResource( 18 ) ]
+start_node = "Idle"
 graph_offset = Vector2( -881.396, -78.6492 )
 
 [sub_resource type="AnimationNodeStateMachinePlayback" id=20]
