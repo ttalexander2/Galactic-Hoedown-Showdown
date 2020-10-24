@@ -1,13 +1,110 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=23 format=2]
 
 [ext_resource path="res://Player.gd" type="Script" id=1]
+[ext_resource path="res://CowboyTemp.png" type="Texture" id=2]
 
 [sub_resource type="CapsuleShape2D" id=1]
+radius = 12.1911
+height = 22.7149
+
+[sub_resource type="Animation" id=2]
+resource_name = "Fall"
+
+[sub_resource type="Animation" id=3]
+resource_name = "Idle_Left"
+
+[sub_resource type="Animation" id=4]
+resource_name = "Idle_Right"
+
+[sub_resource type="Animation" id=5]
+resource_name = "Jump"
+
+[sub_resource type="Animation" id=6]
+resource_name = "Jump_Up"
+
+[sub_resource type="Animation" id=7]
+resource_name = "Run_Left"
+
+[sub_resource type="Animation" id=8]
+resource_name = "Run_Right"
+
+[sub_resource type="AnimationNodeAnimation" id=11]
+animation = "Idle_Left"
+
+[sub_resource type="AnimationNodeAnimation" id=12]
+animation = "Idle_Right"
+
+[sub_resource type="AnimationNodeBlendSpace1D" id=13]
+blend_point_0/node = SubResource( 11 )
+blend_point_0/pos = -1.0
+blend_point_1/node = SubResource( 12 )
+blend_point_1/pos = 1.0
+
+[sub_resource type="AnimationNodeAnimation" id=14]
+animation = "Run_Left"
+
+[sub_resource type="AnimationNodeAnimation" id=16]
+animation = "Jump_Up"
+
+[sub_resource type="AnimationNodeAnimation" id=17]
+animation = "Run_Right"
+
+[sub_resource type="AnimationNodeAnimation" id=18]
+animation = "Fall"
+
+[sub_resource type="AnimationNodeBlendSpace2D" id=15]
+blend_point_0/node = SubResource( 14 )
+blend_point_0/pos = Vector2( -1, 0 )
+blend_point_1/node = SubResource( 16 )
+blend_point_1/pos = Vector2( 0, 1.1 )
+blend_point_2/node = SubResource( 17 )
+blend_point_2/pos = Vector2( 1, 0 )
+blend_point_3/node = SubResource( 18 )
+blend_point_3/pos = Vector2( 0, -1.1 )
+min_space = Vector2( -1, -1.1 )
+max_space = Vector2( 1, 1.1 )
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=19]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=20]
+
+[sub_resource type="AnimationNodeStateMachine" id=9]
+states/Idle/node = SubResource( 13 )
+states/Idle/position = Vector2( -708.396, -19.6492 )
+states/Move/node = SubResource( 15 )
+states/Move/position = Vector2( -443.396, -19.6492 )
+transitions = [ "Idle", "Move", SubResource( 19 ), "Move", "Idle", SubResource( 20 ) ]
+graph_offset = Vector2( -881.396, -78.6492 )
+
+[sub_resource type="AnimationNodeStateMachinePlayback" id=10]
 
 [node name="Player" type="KinematicBody2D"]
 script = ExtResource( 1 )
+__meta__ = {
+"_edit_group_": true
+}
 
 [node name="Sprite" type="Sprite" parent="."]
+scale = Vector2( 0.05, 0.05 )
+texture = ExtResource( 2 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( -1.16798, 4.00452 )
 shape = SubResource( 1 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/Fall = SubResource( 2 )
+anims/Idle_Left = SubResource( 3 )
+anims/Idle_Right = SubResource( 4 )
+anims/Jump = SubResource( 5 )
+anims/Jump_Up = SubResource( 6 )
+anims/Run_Left = SubResource( 7 )
+anims/Run_Right = SubResource( 8 )
+
+[node name="AnimationTree" type="AnimationTree" parent="."]
+tree_root = SubResource( 9 )
+anim_player = NodePath("../AnimationPlayer")
+active = true
+parameters/playback = SubResource( 10 )
+parameters/Idle/blend_position = 0.0
+parameters/Move/blend_position = Vector2( 0, 0 )
