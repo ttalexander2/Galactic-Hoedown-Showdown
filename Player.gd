@@ -102,6 +102,7 @@ func move_state(delta):
 		
 	else:
 		animationState.travel("Idle")
+		
 		velocity = velocity.move_toward(Vector2.ZERO, FRICTION * delta)
 		
 	if Input.is_action_just_pressed("ui_up"):

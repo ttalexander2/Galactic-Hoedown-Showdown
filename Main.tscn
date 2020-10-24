@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Wooden_Wall_Texture_2.png" type="Texture" id=2]
 [ext_resource path="res://BrickBlock.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Bullet.tscn" type="PackedScene" id=4]
+[ext_resource path="res://BigGunEnemy.tscn" type="PackedScene" id=5]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 1026.96, 4.36122 )
@@ -23,9 +24,6 @@ one_way_collision_margin = 0.0
 
 [node name="Blocks" type="Node" parent="."]
 
-[node name="Sprite" parent="Blocks" instance=ExtResource( 3 )]
-position = Vector2( 487.904, 292.035 )
-
 [node name="Sprite2" parent="Blocks" instance=ExtResource( 3 )]
 position = Vector2( 531.037, 209.934 )
 
@@ -40,3 +38,8 @@ bullet = ExtResource( 4 )
 current = true
 limit_top = 0
 limit_bottom = 360
+
+[node name="Enemies" type="Node" parent="."]
+
+[node name="BigGunEnemy" parent="Enemies" instance=ExtResource( 5 )]
+position = Vector2( 765, 185 )

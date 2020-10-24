@@ -1,0 +1,32 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Enemy.png" type="Texture" id=1]
+[ext_resource path="res://BigGunEnemy.gd" type="Script" id=2]
+
+[sub_resource type="CapsuleShape2D" id=1]
+radius = 99.5492
+height = 473.494
+
+[node name="BigGunEnemy" type="KinematicBody2D"]
+scale = Vector2( 0.1, 0.1 )
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="Sprite" parent="."]
+texture = ExtResource( 1 )
+flip_h = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( 75.194, 84.7473 )
+shape = SubResource( 1 )
+
+[node name="ShootingTime" type="Timer" parent="."]
+one_shot = true
+
+[node name="BetweenShots" type="Timer" parent="."]
+wait_time = 2.0
+one_shot = true
+[connection signal="timeout" from="ShootingTime" to="." method="move"]
+[connection signal="timeout" from="BetweenShots" to="." method="aim"]
