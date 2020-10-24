@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/Cyborg Tommy - 3.06 HHUUUUUUH.wav-777a2acee179d11e8fe3875e5307ee2d.sample"
+
+[deps]
+
+source_file="res://assets/voice-lines/Cyborg Tommy - 3.06 HHUUUUUUH.wav"
+dest_files=[ "res://.import/Cyborg Tommy - 3.06 HHUUUUUUH.wav-777a2acee179d11e8fe3875e5307ee2d.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0

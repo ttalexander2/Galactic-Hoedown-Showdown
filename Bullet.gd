@@ -1,4 +1,4 @@
-extends Sprite
+extends Area2D
 
 
 # Declare member variables here. Examples:
@@ -21,6 +21,7 @@ func _process(delta):
 
 func _physics_process(delta):
 	position.x += direction.x * SPEED * delta
+
 
 func destroy():
 	queue_free()

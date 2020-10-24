@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/Cyborg Tommy - 1.08 Mudsil.wav-39ef3279f40bc222a2cbabaf412d8e80.sample"
+
+[deps]
+
+source_file="res://assets/voice-lines/Cyborg Tommy - 1.08 Mudsil.wav"
+dest_files=[ "res://.import/Cyborg Tommy - 1.08 Mudsil.wav-39ef3279f40bc222a2cbabaf412d8e80.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0

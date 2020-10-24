@@ -32,6 +32,10 @@ func move():
 	print("shooty shoot")
 	shooting = false
 	betweenShots.start()
+	
+func die():
+	print("dead")
+	self.queue_free();
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
@@ -47,5 +51,8 @@ func _process(delta):
 	
 	velocity.y += delta * GRAVITY
 	velocity = move_and_slide(velocity)
+	
+
+
 	
 	#velocity = velocity.move_toward(Vector2.ZERO, FRICTION * delta)

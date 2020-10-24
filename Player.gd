@@ -1,11 +1,11 @@
 extends KinematicBody2D
 
-const ACCELERATION = 250
-const MAX_SPEED = 500
-const SPEED = 30
-const FRICTION = 500
-const JUMP = -500
-const GRAVITY = 1000.0
+const ACCELERATION = 5000
+const MAX_SPEED = 200
+const SPEED = 200
+const FRICTION = 2000
+const JUMP = -900
+const GRAVITY = 3000
 
 enum {
 	MOVE,
@@ -15,7 +15,7 @@ enum {
 
 var state = MOVE
 var velocity = Vector2.ZERO
-var direction = -1
+var direction = 1
 
 onready var animationPlayer = $AnimationPlayer
 onready var animationTree = $AnimationTree
@@ -42,14 +42,6 @@ func _ready():
 	time_begin = OS.get_ticks_usec();
 	animationTree.active = true
 
-func _physics_process(delta):
-	match state:
-		MOVE:
-			move_state(delta)
-		ROLL:
-			pass
-		ATTACK:
-			attack_state(delta)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
@@ -70,7 +62,14 @@ func _process(delta):
 	if (time_since_last_shot >= 10000.0/BPM*delta):
 		time_since_last_shot = 0;
 		shoot();
-	move_state(delta)
+		
+	match state:
+		MOVE:
+			move_state(delta)
+		ROLL:
+			pass
+		ATTACK:
+			attack_state(delta)
 
 		
 func shoot():
@@ -88,28 +87,31 @@ func move_state(delta):
 	#input_vector.y = Input.get_action_strength("ui_down") - Input.get_action_strength("ui_up")
 	input_vector = input_vector.normalized()
 	
+	if (input_vector.x != 0):
+		direction = input_vector.x
+		
+	if (direction != 1 != $Sprite.flip_h):
+		$Sprite.set_flip_h(direction != 1);
+		
+
+	
 	if input_vector != Vector2.ZERO:
 		animationTree.set("parameters/Idle/blend_position", input_vector)
 		animationTree.set("parameters/Move/blend_position", input_vector)
 		#animationTree.set("parameters/Attack/blend_position", input_vector)
-		animationState.travel("Move")
-		velocity = velocity.move_toward(input_vector * MAX_SPEED * delta * SPEED, ACCELERATION * delta)
-		
-		if direction - input_vector.x != 0:
-			#print(direction - input_vector.x)
-			$Sprite.set_flip_h(!$Sprite.flip_h)
-		direction = input_vector.x
+		animationState.travel("Run")
+		velocity = Vector2(velocity.move_toward(input_vector * MAX_SPEED * delta * SPEED, ACCELERATION * delta).x, velocity.y)
 		
 	else:
 		animationState.travel("Idle")
 		
-		velocity = velocity.move_toward(Vector2.ZERO, FRICTION * delta)
+		velocity = Vector2(velocity.move_toward(Vector2.ZERO, FRICTION * delta).x, velocity.y)
 		
 	if Input.is_action_just_pressed("ui_up"):
 		velocity.y = JUMP
 	else:
 		velocity.y += delta * GRAVITY
-	
+		
 	velocity = move_and_slide(velocity)
 	
 	if Input.is_action_just_pressed("attack"):
@@ -123,4 +125,6 @@ func attack_state(delta):
 
 func attack_animation_finished():
 	state = MOVE
-
+	
+func set_sprite_position():
+	$Sprite.position.x = direction * $Sprite.position.x;

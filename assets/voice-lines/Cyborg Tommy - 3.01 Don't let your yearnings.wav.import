@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/Cyborg Tommy - 3.01 Don't let your yearnings.wav-cd5691c3584d0dbe9e20d9304fe011a2.sample"
+
+[deps]
+
+source_file="res://assets/voice-lines/Cyborg Tommy - 3.01 Don't let your yearnings.wav"
+dest_files=[ "res://.import/Cyborg Tommy - 3.01 Don't let your yearnings.wav-cd5691c3584d0dbe9e20d9304fe011a2.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0

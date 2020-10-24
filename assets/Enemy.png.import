@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/CowboyTemp.png-1dd4a32778417238f3a84de4b94a8395.stex"
+path="res://.import/Enemy.png-4469ef267ace4325be6db86bf6c58218.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://CowboyTemp.png"
-dest_files=[ "res://.import/CowboyTemp.png-1dd4a32778417238f3a84de4b94a8395.stex" ]
+source_file="res://assets/Enemy.png"
+dest_files=[ "res://.import/Enemy.png-4469ef267ace4325be6db86bf6c58218.stex" ]
 
 [params]
 

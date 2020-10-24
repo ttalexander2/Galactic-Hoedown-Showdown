@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/Cyborg Tommy - 3.02 Boot Licker.wav-d8e5b54b15d6f647adc6f6573ba78aaf.sample"
+
+[deps]
+
+source_file="res://assets/voice-lines/Cyborg Tommy - 3.02 Boot Licker.wav"
+dest_files=[ "res://.import/Cyborg Tommy - 3.02 Boot Licker.wav-d8e5b54b15d6f647adc6f6573ba78aaf.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0

@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/Cyborg Tommy - 3.11 Unsaltd waddie.wav-929f13243cda57ced9055fccfe2ee474.sample"
+
+[deps]
+
+source_file="res://assets/voice-lines/Cyborg Tommy - 3.11 Unsaltd waddie.wav"
+dest_files=[ "res://.import/Cyborg Tommy - 3.11 Unsaltd waddie.wav-929f13243cda57ced9055fccfe2ee474.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0

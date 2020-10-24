@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/Cyborg Tommy - 2.04 Bed 'em down.wav-e45a8970c2101ded3a9b8bf50d461ccb.sample"
+
+[deps]
+
+source_file="res://assets/voice-lines/Cyborg Tommy - 2.04 Bed 'em down.wav"
+dest_files=[ "res://.import/Cyborg Tommy - 2.04 Bed 'em down.wav-e45a8970c2101ded3a9b8bf50d461ccb.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0

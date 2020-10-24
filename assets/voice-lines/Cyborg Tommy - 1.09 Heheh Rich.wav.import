@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/Cyborg Tommy - 1.09 Heheh Rich.wav-d0a63e4b963973aa58f9e35d686f0a1b.sample"
+
+[deps]
+
+source_file="res://assets/voice-lines/Cyborg Tommy - 1.09 Heheh Rich.wav"
+dest_files=[ "res://.import/Cyborg Tommy - 1.09 Heheh Rich.wav-d0a63e4b963973aa58f9e35d686f0a1b.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0

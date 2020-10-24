@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/Cyborg Tommy - 1.14 Whup.wav-c6f35d4c4536617c0304043f140b3388.sample"
+
+[deps]
+
+source_file="res://assets/voice-lines/Cyborg Tommy - 1.14 Whup.wav"
+dest_files=[ "res://.import/Cyborg Tommy - 1.14 Whup.wav-c6f35d4c4536617c0304043f140b3388.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0
