@@ -80,9 +80,6 @@ graph_offset = Vector2( -881.396, -78.6492 )
 
 [node name="Player" type="KinematicBody2D"]
 script = ExtResource( 1 )
-__meta__ = {
-"_edit_group_": true
-}
 
 [node name="Sprite" type="Sprite" parent="."]
 scale = Vector2( 0.05, 0.05 )
@@ -108,3 +105,6 @@ active = true
 parameters/playback = SubResource( 20 )
 parameters/Idle/blend_position = 0.0
 parameters/Move/blend_position = Vector2( 0, 0 )
+
+[node name="Position2D" type="Position2D" parent="."]
+position = Vector2( -35.5401, 0.33371 )

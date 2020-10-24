@@ -14,10 +14,12 @@ enum {
 
 var state = MOVE
 var velocity = Vector2.ZERO
+var direction = -1
 
 onready var animationPlayer = $AnimationPlayer
 onready var animationTree = $AnimationTree
 onready var animationState = animationTree.get("parameters/playback")
+export (PackedScene) var bullet 
 
 # Declare member variables here. Examples:
 # var a = 2
@@ -65,8 +67,10 @@ func _process(delta):
 		
 func shoot():
 	print(BPM)
-
-	
+	var shot = bullet.instance()
+	shot.set_direction(direction)
+	get_node("/root/Main").add_child(shot)
+	shot.global_position = self.global_position
 
 
 func move_state(delta):
@@ -82,6 +86,7 @@ func move_state(delta):
 		#animationTree.set("parameters/Attack/blend_position", input_vector)
 		animationState.travel("Move")
 		velocity = velocity.move_toward(input_vector * MAX_SPEED, ACCELERATION * delta)
+		direction = input_vector.x
 	else:
 		animationState.travel("Idle")
 		velocity = velocity.move_toward(Vector2.ZERO, FRICTION * delta)
