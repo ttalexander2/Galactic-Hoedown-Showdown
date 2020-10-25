@@ -208,3 +208,4 @@ func hit():
 	print("Lives: " + str(lives))
 	if lives < 1:
 		play_death_sound()
+		animationState.travel("Death")
