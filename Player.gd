@@ -48,6 +48,8 @@ var has_jump = 1;
 
 var lives = 10
 
+var last_delta = 0
+
 
 
 # Called when the node enters the scene tree for the first time.
@@ -62,7 +64,7 @@ func _ready():
 #	pass
 
 func _process(delta):
-	
+	last_delta = delta
 	#if is_colliding():
 	#	print(get_collider())
 		
@@ -192,7 +194,7 @@ func hit():
 		return
 	lives -= 1
 	if lives > -1:
-		velocity += Vector2(500*direction, -1000)
+		velocity += Vector2(55000*direction, -150000) * last_delta;
 		playerHealth[lives].hide()
 		animationState.travel("Hurt")
 		$Voice.play_hurt_sound()
