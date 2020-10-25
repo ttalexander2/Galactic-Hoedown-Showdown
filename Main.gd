@@ -25,5 +25,6 @@ func _process(delta):
 
 
 func _on_ScoreTimer_timeout():
-	score += 1
-	hud.update_score(score)
+	if $Player.lives > 0:
+		score += 1
+		hud.update_score(score)
