@@ -1,8 +1,9 @@
-[gd_scene load_steps=39 format=2]
+[gd_scene load_steps=40 format=2]
 
 [ext_resource path="res://Player.gd" type="Script" id=1]
 [ext_resource path="res://assets/CYBORG_TOM_SPRITESHEET.png" type="Texture" id=2]
 [ext_resource path="res://Voice.gd" type="Script" id=3]
+[ext_resource path="res://assets/gun shoot.wav" type="AudioStream" id=4]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 20, 35.742 )
@@ -225,7 +226,7 @@ texture = ExtResource( 2 )
 offset = Vector2( 10, 0 )
 vframes = 6
 hframes = 7
-frame = 7
+frame = 8
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( 0.093, 7.5 )
@@ -251,5 +252,10 @@ position = Vector2( -35.5401, 0.33371 )
 
 [node name="Voice" type="AudioStreamPlayer2D" parent="."]
 stream = SubResource( 35 )
+volume_db = 5.0
 script = ExtResource( 3 )
+
+[node name="Shoot" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 4 )
+volume_db = -10.0
 [connection signal="input_event" from="." to="." method="_on_Player_input_event"]

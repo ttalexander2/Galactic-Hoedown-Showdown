@@ -80,7 +80,7 @@ func _process(delta):
 			
 	if (lives > 0 and time_since_last_shot >= 10000.0/BPM*delta):
 		time_since_last_shot = 0;
-		
+		$Shoot.play()
 		shoot();
 
 		

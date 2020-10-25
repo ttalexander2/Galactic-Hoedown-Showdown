@@ -6,6 +6,7 @@ extends Node
 # var b = "text"
 onready var tobLogo = $Sprite
 var readyToStart = false
+const BPM = 150.0;
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
