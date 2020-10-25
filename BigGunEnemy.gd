@@ -23,6 +23,9 @@ onready var player = get_node("/root/Main/Player")
 onready var animationPlayer = $AnimationPlayer
 onready var animationTree = $AnimationTree
 onready var animationState = animationTree.get("parameters/playback")
+onready var main = get_node("/root/Main")
+
+
 var shooting = false
 var second_shot = false
 var time_to_shoot = 0
@@ -42,7 +45,7 @@ func shoot():
 	shot.global_position = self.global_position
 	
 func die():
-	print("dead")
+	main.killed_mob()
 	self.queue_free();
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

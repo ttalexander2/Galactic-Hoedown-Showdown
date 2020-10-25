@@ -27,6 +27,5 @@ func destroy():
 
 
 func _on_Area2D_body_entered(body):
-	print("shot bad guy?")
 	if body.get_class() == "KinematicBody2D":
 		body.die()
