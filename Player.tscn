@@ -217,9 +217,6 @@ graph_offset = Vector2( -1313.69, -98.2065 )
 input_pickable = true
 collision_mask = 2147483655
 script = ExtResource( 1 )
-__meta__ = {
-"_edit_group_": true
-}
 
 [node name="Sprite" type="Sprite" parent="."]
 position = Vector2( 0, 30 )
@@ -248,8 +245,17 @@ anim_player = NodePath("../AnimationPlayer")
 active = true
 parameters/playback = SubResource( 34 )
 
-[node name="Position2D" type="Position2D" parent="."]
-position = Vector2( -35.5401, 0.33371 )
+[node name="Spawn1" type="Position2D" parent="."]
+position = Vector2( -141.457, -183.649 )
+
+[node name="Spawn2" type="Position2D" parent="."]
+position = Vector2( 305.706, -232.928 )
+
+[node name="Spawn3" type="Position2D" parent="."]
+position = Vector2( -462.698, -330.18 )
+
+[node name="Spawn4" type="Position2D" parent="."]
+position = Vector2( 753.431, -499.844 )
 
 [node name="Voice" type="AudioStreamPlayer2D" parent="."]
 stream = SubResource( 35 )
