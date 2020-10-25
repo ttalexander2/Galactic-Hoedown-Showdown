@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=2]
+[gd_scene load_steps=28 format=2]
 
 [ext_resource path="res://Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://LevelPrefabs/Wall1.tscn" type="PackedScene" id=2]
@@ -26,6 +26,9 @@
 [ext_resource path="res://LevelPrefabs/EmptyShelf.tscn" type="PackedScene" id=24]
 [ext_resource path="res://LevelPrefabs/Floor2Wide1.tscn" type="PackedScene" id=25]
 [ext_resource path="res://LevelPrefabs/Floor2Wide2.tscn" type="PackedScene" id=26]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 5.57153, 89.686 )
 
 [node name="Main" type="Node2D"]
 script = ExtResource( 7 )
@@ -197,6 +200,11 @@ position = Vector2( 354.305, -109.02 )
 
 [node name="Chandelier2" parent="LevelStruct" instance=ExtResource( 19 )]
 position = Vector2( 2110.83, 70.4056 )
+z_index = -1
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="LevelStruct/Chandelier2"]
+position = Vector2( 0.600098, -150.54 )
+shape = SubResource( 1 )
 
 [node name="Stairs2" parent="LevelStruct" instance=ExtResource( 20 )]
 position = Vector2( 1239.46, 263.221 )
