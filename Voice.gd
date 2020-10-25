@@ -70,6 +70,7 @@ func play_kill_sound():
 func play_score_sound():
 	stream = samples_on_score[score_sound]
 	score_sound += 1;
+	score_sound % samples_on_score.size()
 	play()
 	
 func play_death_sound():
