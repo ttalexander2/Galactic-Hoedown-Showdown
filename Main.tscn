@@ -32,30 +32,24 @@ script = ExtResource( 7 )
 enemy = ExtResource( 5 )
 
 [node name="EnemySpawnTimer" type="Timer" parent="."]
-wait_time = 10.0
+wait_time = 4.0
 autostart = true
 
 [node name="LevelStruct" type="Node" parent="."]
 
 [node name="Wall1" parent="LevelStruct" instance=ExtResource( 2 )]
-position = Vector2( 319.954, 189.217 )
+position = Vector2( 319.954, 189.059 )
 z_index = -3
 
 [node name="Clock" parent="LevelStruct/Wall1" instance=ExtResource( 12 )]
-position = Vector2( -92.3411, 31.4995 )
+position = Vector2( -110, 120.634 )
 
 [node name="Wall2" parent="LevelStruct" instance=ExtResource( 10 )]
 position = Vector2( 959.43, 188.988 )
 z_index = -3
 
-[node name="Wall3" parent="LevelStruct" instance=ExtResource( 10 )]
-position = Vector2( 1599.25, 188.958 )
-
 [node name="Piano" parent="LevelStruct" instance=ExtResource( 15 )]
 position = Vector2( 488.579, 308.533 )
-
-[node name="CollisionShape2D2" parent="LevelStruct/Piano" instance=ExtResource( 21 )]
-position = Vector2( 11.5154, -29.4151 )
 
 [node name="PoolTable" parent="LevelStruct" instance=ExtResource( 16 )]
 position = Vector2( 1035.53, 330.917 )
@@ -188,8 +182,11 @@ limit_bottom = 360
 
 [node name="Enemies" type="Node" parent="."]
 
+[node name="BigGunEnemy2" parent="Enemies" instance=ExtResource( 5 )]
+position = Vector2( 1274.08, 56.0496 )
+
 [node name="BigGunEnemy3" parent="Enemies" instance=ExtResource( 5 )]
-position = Vector2( 976.215, 264.498 )
+position = Vector2( 978.296, 271.039 )
 
 [node name="HUD" parent="." instance=ExtResource( 6 )]
 
