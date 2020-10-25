@@ -1,38 +1,22 @@
 [gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://Player.tscn" type="PackedScene" id=1]
-[ext_resource path="res://assets/Wooden_Wall_Texture_2.png" type="Texture" id=2]
-[ext_resource path="res://BrickBlock.tscn" type="PackedScene" id=3]
+[ext_resource path="res://LevelPrefabs/Wall1.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Bullet3.tscn" type="PackedScene" id=4]
 [ext_resource path="res://BigGunEnemy.tscn" type="PackedScene" id=5]
 [ext_resource path="res://UI.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Main.gd" type="Script" id=7]
 [ext_resource path="res://assets/game jam.wav" type="AudioStream" id=8]
 
-[sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 1026.96, 4.36122 )
-
 [node name="Main" type="Node2D"]
 script = ExtResource( 7 )
 
-[node name="Sprite" type="Sprite" parent="."]
-position = Vector2( 323.263, 180.764 )
-texture = ExtResource( 2 )
+[node name="LevelStruct" type="Node" parent="."]
 
-[node name="StaticBody2D" type="StaticBody2D" parent="Sprite"]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite/StaticBody2D"]
-position = Vector2( 451.568, 174.584 )
-shape = SubResource( 1 )
-one_way_collision_margin = 0.0
+[node name="Wall1" parent="LevelStruct" instance=ExtResource( 2 )]
+position = Vector2( 320.037, 178.991 )
 
 [node name="Blocks" type="Node" parent="."]
-
-[node name="Sprite2" parent="Blocks" instance=ExtResource( 3 )]
-position = Vector2( 531.037, 209.934 )
-
-[node name="Sprite3" parent="Blocks" instance=ExtResource( 3 )]
-position = Vector2( 453.256, 154.779 )
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
 position = Vector2( 319.924, 177.444 )
@@ -46,7 +30,11 @@ limit_bottom = 360
 [node name="Enemies" type="Node" parent="."]
 
 [node name="BigGunEnemy2" parent="Enemies" instance=ExtResource( 5 )]
-position = Vector2( 827.268, 274.927 )
+
+position = Vector2( 1532.86, 276.709 )
+
+[node name="BigGunEnemy3" parent="Enemies" instance=ExtResource( 5 )]
+position = Vector2( 778.613, 261.521 )
 
 [node name="HUD" parent="." instance=ExtResource( 6 )]
 
