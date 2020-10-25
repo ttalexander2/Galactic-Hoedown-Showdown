@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=2]
+[gd_scene load_steps=32 format=2]
 
 [ext_resource path="res://Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://LevelPrefabs/Wall1.tscn" type="PackedScene" id=2]
@@ -28,14 +28,17 @@
 [ext_resource path="res://LevelPrefabs/Floor2Wide2.tscn" type="PackedScene" id=26]
 [ext_resource path="res://LevelPrefabs/ROBUCK.tscn" type="PackedScene" id=27]
 
-[sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 5.57153, 89.686 )
-
 [sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 248.924, 9.1701 )
 
 [sub_resource type="RectangleShape2D" id=3]
 extents = Vector2( 223.558, 10 )
+
+[sub_resource type="RectangleShape2D" id=4]
+extents = Vector2( 347.122, 8.66425 )
+
+[sub_resource type="RectangleShape2D" id=5]
+extents = Vector2( 238.784, 10 )
 
 [node name="Main" type="Node2D"]
 script = ExtResource( 7 )
@@ -54,6 +57,16 @@ z_index = -3
 [node name="Clock" parent="LevelStruct/Wall1" instance=ExtResource( 12 )]
 position = Vector2( -107.477, 26.4536 )
 
+[node name="Leftmost wall" type="CollisionShape2D" parent="LevelStruct/Wall1"]
+position = Vector2( -326.132, -70.972 )
+rotation = 1.5708
+shape = SubResource( 2 )
+one_way_collision = true
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="LevelStruct/Wall1"]
+position = Vector2( -544.107, 157.423 )
+shape = SubResource( 3 )
+
 [node name="Wall2" parent="LevelStruct" instance=ExtResource( 10 )]
 position = Vector2( 959.95, 189.058 )
 z_index = -3
@@ -71,6 +84,9 @@ z_index = -3
 [node name="Piano" parent="LevelStruct/Wall4" instance=ExtResource( 15 )]
 position = Vector2( -182.822, 119.678 )
 z_index = 1
+
+[node name="Radio" parent="LevelStruct/Wall4/Piano" instance=ExtResource( 14 )]
+position = Vector2( 39.9321, -32.5368 )
 
 [node name="Wall5" parent="LevelStruct" instance=ExtResource( 2 )]
 position = Vector2( 2879.99, 189.098 )
@@ -92,6 +108,19 @@ z_index = -3
 position = Vector2( 5439.67, 189.098 )
 z_index = -3
 
+[node name="Stool" parent="LevelStruct/Wall9" instance=ExtResource( 11 )]
+position = Vector2( -43.5449, 147.574 )
+
+[node name="Stool" parent="LevelStruct/Wall9/Stool" instance=ExtResource( 11 )]
+position = Vector2( 30.9976, -0.0358887 )
+
+[node name="Stool2" parent="LevelStruct/Wall9/Stool" instance=ExtResource( 11 )]
+position = Vector2( 44.6733, -0.0358887 )
+
+[node name="Stool" parent="LevelStruct/Wall9/Stool/Stool2" instance=ExtResource( 11 )]
+position = Vector2( -64.812, 1.48633 )
+rotation = -1.5708
+
 [node name="Wall10" parent="LevelStruct" instance=ExtResource( 2 )]
 position = Vector2( 6071.29, 189.098 )
 z_index = -3
@@ -99,6 +128,20 @@ z_index = -3
 [node name="Wall11" parent="LevelStruct" instance=ExtResource( 2 )]
 position = Vector2( 6703.65, 189.098 )
 z_index = -3
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="LevelStruct/Wall11"]
+position = Vector2( 324.287, -42.7632 )
+rotation = -1.5708
+shape = SubResource( 4 )
+one_way_collision = true
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="LevelStruct/Wall11"]
+position = Vector2( 554.055, 155.739 )
+shape = SubResource( 5 )
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="LevelStruct/Wall11"]
+position = Vector2( 560.662, -9.43874 )
+shape = SubResource( 5 )
 
 [node name="Piano" parent="LevelStruct" instance=ExtResource( 15 )]
 position = Vector2( 488.579, 308.533 )
@@ -178,6 +221,7 @@ z_index = -1
 
 [node name="ROBUCK" parent="LevelStruct/Bar 1" instance=ExtResource( 27 )]
 position = Vector2( 2722.71, -100.612 )
+z_index = -1
 
 [node name="Chandelier" parent="LevelStruct" instance=ExtResource( 19 )]
 position = Vector2( 491.874, 70.8113 )
@@ -221,7 +265,7 @@ position = Vector2( 1370.2, 263.231 )
 z_index = -1
 
 [node name="Floor2Wide1" parent="LevelStruct/Floor2-1" instance=ExtResource( 25 )]
-position = Vector2( 449.992, -0.00909424 )
+position = Vector2( 450.102, 0.0169983 )
 
 [node name="Floor2Wide2" parent="LevelStruct/Floor2-1" instance=ExtResource( 26 )]
 position = Vector2( 180.05, 0.0793152 )
@@ -239,32 +283,18 @@ position = Vector2( 400.482, -109.023 )
 z_index = 3
 
 [node name="Railing4" parent="LevelStruct/Floor2-1" instance=ExtResource( 21 )]
-position = Vector2( 354.305, -109.02 )
+position = Vector2( 354.492, -108.645 )
 z_index = 3
 
 [node name="Chandelier2" parent="LevelStruct" instance=ExtResource( 19 )]
 position = Vector2( 2110.83, 70.4056 )
 z_index = -1
 
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="LevelStruct/Chandelier2"]
-position = Vector2( 0.600098, -150.54 )
-shape = SubResource( 1 )
-
 [node name="Stairs2" parent="LevelStruct" instance=ExtResource( 20 )]
 position = Vector2( 1239.46, 263.221 )
 
 [node name="PoolTable2" parent="LevelStruct" instance=ExtResource( 16 )]
-position = Vector2( 2336.88, 331.109 )
-
-[node name="Leftmost wall" type="CollisionShape2D" parent="LevelStruct"]
-position = Vector2( -10.6066, 118.087 )
-rotation = 1.5708
-shape = SubResource( 2 )
-one_way_collision = true
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="LevelStruct"]
-position = Vector2( -224.153, 346.482 )
-shape = SubResource( 3 )
+position = Vector2( 2322.05, 330.932 )
 
 [node name="Floor2Wide1" parent="LevelStruct" instance=ExtResource( 25 )]
 position = Vector2( 2528.89, 263.127 )
@@ -277,6 +307,29 @@ position = Vector2( 540.477, 0.0832825 )
 position = Vector2( -89.9495, -108.603 )
 z_index = 3
 
+[node name="SarspShelf" parent="LevelStruct/Floor2Wide1/Floor2Wide1" instance=ExtResource( 18 )]
+position = Vector2( -69.9404, 11.381 )
+
+[node name="WineglassFull" parent="LevelStruct/Floor2Wide1/Floor2Wide1" instance=ExtResource( 23 )]
+position = Vector2( -46.606, 80.6774 )
+
+[node name="Sarsp" parent="LevelStruct/Floor2Wide1/Floor2Wide1/WineglassFull" instance=ExtResource( 13 )]
+position = Vector2( -8.67334, -4.7937 )
+rotation = 0.715585
+
+[node name="WineglassFull2" parent="LevelStruct/Floor2Wide1/Floor2Wide1" instance=ExtResource( 23 )]
+position = Vector2( -393.088, 42.4937 )
+
+[node name="WineglassFull3" parent="LevelStruct/Floor2Wide1/Floor2Wide1" instance=ExtResource( 17 )]
+position = Vector2( -590.371, 41.7866 )
+
+[node name="WineglassFull4" parent="LevelStruct/Floor2Wide1/Floor2Wide1" instance=ExtResource( 17 )]
+position = Vector2( -455.313, 41.7866 )
+
+[node name="WineglassFull5" parent="LevelStruct/Floor2Wide1/Floor2Wide1" instance=ExtResource( 23 )]
+position = Vector2( -533.223, 43.0544 )
+z_index = 3
+
 [node name="Railing" parent="LevelStruct/Floor2Wide1" instance=ExtResource( 22 )]
 position = Vector2( 269.784, 0.146057 )
 
@@ -286,10 +339,6 @@ z_index = 3
 
 [node name="Chandelier" parent="LevelStruct/Floor2Wide1" instance=ExtResource( 19 )]
 position = Vector2( 784.467, -194.418 )
-
-[node name="CollisionShape2D3" type="CollisionShape2D" parent="LevelStruct/Floor2Wide1"]
-position = Vector2( 785.538, -343.762 )
-shape = SubResource( 1 )
 
 [node name="Railing2" parent="LevelStruct/Floor2Wide1" instance=ExtResource( 21 )]
 position = Vector2( 89.9758, -108.652 )
@@ -315,17 +364,175 @@ z_index = -2
 [node name="Floor2Wide1" parent="LevelStruct/Stairs3" instance=ExtResource( 25 )]
 position = Vector2( 491.099, 0.047 )
 
+[node name="Piano" parent="LevelStruct/Stairs3/Floor2Wide1" instance=ExtResource( 15 )]
+position = Vector2( 43.3193, 45.2128 )
+
+[node name="Sarsp" parent="LevelStruct/Stairs3/Floor2Wide1/Piano" instance=ExtResource( 13 )]
+position = Vector2( 3.646, -36.1316 )
+
+[node name="WineglassFull" parent="LevelStruct/Stairs3/Floor2Wide1/Piano" instance=ExtResource( 23 )]
+position = Vector2( 23.7852, -29.6798 )
+z_index = 3
+
+[node name="WineglassFull2" parent="LevelStruct/Stairs3/Floor2Wide1/Piano" instance=ExtResource( 17 )]
+position = Vector2( 31.9229, -30.5216 )
+z_index = 3
+
 [node name="Floor2Wide2" parent="LevelStruct/Stairs3" instance=ExtResource( 25 )]
 position = Vector2( 220.978, 0.047 )
 
+[node name="Piano2" parent="LevelStruct" instance=ExtResource( 15 )]
+position = Vector2( 4729.01, 308.658 )
+
 [node name="Floor2Wide2" parent="LevelStruct" instance=ExtResource( 25 )]
 position = Vector2( 6888.5, 263.044 )
+z_index = -1
+
+[node name="Railing" parent="LevelStruct/Floor2Wide2" instance=ExtResource( 21 )]
+position = Vector2( -89.9136, -108.555 )
+
+[node name="Piano" parent="LevelStruct/Floor2Wide2" instance=ExtResource( 15 )]
+position = Vector2( -46.3921, 45.4187 )
+z_index = -1
 
 [node name="Bar" parent="LevelStruct" instance=ExtResource( 9 )]
 position = Vector2( 2569.13, 273.95 )
 
 [node name="ROBUCK" parent="LevelStruct/Bar" instance=ExtResource( 27 )]
 position = Vector2( -367.731, -78.5403 )
+z_index = -1
+
+[node name="Sarsp" parent="LevelStruct/Bar" instance=ExtResource( 13 )]
+position = Vector2( 7.17725, 25.7692 )
+
+[node name="Sarsp2" parent="LevelStruct/Bar" instance=ExtResource( 13 )]
+position = Vector2( -59.8904, 34.5 )
+rotation = -1.5708
+
+[node name="Sarsp3" parent="LevelStruct/Bar" instance=ExtResource( 13 )]
+position = Vector2( 73.8481, 25.7692 )
+
+[node name="Stool" parent="LevelStruct/Bar" instance=ExtResource( 11 )]
+position = Vector2( -50.6331, 62.05 )
+
+[node name="Stool2" parent="LevelStruct/Bar" instance=ExtResource( 11 )]
+position = Vector2( 74.043, 63.1447 )
+
+[node name="Stool" parent="LevelStruct" instance=ExtResource( 11 )]
+position = Vector2( 2274.71, 336.619 )
+
+[node name="Stool" parent="LevelStruct/Stool" instance=ExtResource( 11 )]
+position = Vector2( 28.905, -0.0639343 )
+
+[node name="Stool2" parent="LevelStruct/Stool" instance=ExtResource( 11 )]
+position = Vector2( 65.6746, -0.0639343 )
+
+[node name="Stool3" parent="LevelStruct/Stool" instance=ExtResource( 11 )]
+position = Vector2( 96.6106, -0.0639648 )
+
+[node name="Radio" parent="LevelStruct/Stool" instance=ExtResource( 14 )]
+position = Vector2( 68.0864, -31.5828 )
+z_index = -1
+
+[node name="Railing" parent="LevelStruct" instance=ExtResource( 21 )]
+position = Vector2( 3159.39, 154.906 )
+z_index = 3
+
+[node name="Radio" parent="LevelStruct" instance=ExtResource( 14 )]
+position = Vector2( 3188.2, 169.166 )
+
+[node name="Bar2" parent="LevelStruct" instance=ExtResource( 9 )]
+position = Vector2( 5815.79, 273.665 )
+
+[node name="Bar" parent="LevelStruct/Bar2" instance=ExtResource( 9 )]
+position = Vector2( 253.229, 0.897308 )
+
+[node name="ROBUCK" parent="LevelStruct/Bar2/Bar" instance=ExtResource( 27 )]
+position = Vector2( -121.393, -60.1445 )
+z_index = -1
+
+[node name="Bar2" parent="LevelStruct/Bar2" instance=ExtResource( 9 )]
+position = Vector2( 508.075, 0.897308 )
+
+[node name="Clock" parent="LevelStruct/Bar2/Bar2" instance=ExtResource( 12 )]
+position = Vector2( -249.329, -60.287 )
+
+[node name="ROBUCK" parent="LevelStruct/Bar2/Bar2" instance=ExtResource( 27 )]
+position = Vector2( 299.473, -57.1086 )
+z_index = -1
+
+[node name="Radio" parent="LevelStruct/Bar2/Bar2" instance=ExtResource( 14 )]
+position = Vector2( 98.1758, 28.7079 )
+
+[node name="SarspShelf" parent="LevelStruct/Bar2/Bar2" instance=ExtResource( 18 )]
+position = Vector2( -551.742, -7.08405 )
+z_index = -1
+
+[node name="WineglassShelf" parent="LevelStruct/Bar2/Bar2" instance=ExtResource( 3 )]
+position = Vector2( -455.88, -10.4476 )
+z_index = -1
+
+[node name="WineglassShelf2" parent="LevelStruct/Bar2/Bar2" instance=ExtResource( 3 )]
+position = Vector2( -250.701, -9.60675 )
+z_index = -1
+
+[node name="WineglassShelf3" parent="LevelStruct/Bar2/Bar2" instance=ExtResource( 3 )]
+position = Vector2( -297.792, -8.76584 )
+z_index = -1
+
+[node name="WineglassShelf4" parent="LevelStruct/Bar2/Bar2" instance=ExtResource( 3 )]
+position = Vector2( -153.999, -11.3486 )
+z_index = -1
+
+[node name="SarspShelf2" parent="LevelStruct/Bar2/Bar2" instance=ExtResource( 18 )]
+position = Vector2( -87.0327, -13.9225 )
+z_index = -1
+
+[node name="SarspShelf" parent="LevelStruct/Bar2/Bar2/SarspShelf2" instance=ExtResource( 18 )]
+position = Vector2( 90.9224, -1.22031 )
+
+[node name="SarspShelf2" parent="LevelStruct/Bar2/Bar2/SarspShelf2" instance=ExtResource( 18 )]
+position = Vector2( 139.58, -1.41739 )
+
+[node name="SarspShelf3" parent="LevelStruct/Bar2/Bar2/SarspShelf2" instance=ExtResource( 18 )]
+position = Vector2( 246.351, -6.60712 )
+
+[node name="WineglassShelf" parent="LevelStruct/Bar2/Bar2/SarspShelf2" instance=ExtResource( 3 )]
+position = Vector2( 280.331, -7.07904 )
+
+[node name="Clock" parent="LevelStruct/Bar2" instance=ExtResource( 12 )]
+position = Vector2( -163.016, -68.0055 )
+
+[node name="Clock" parent="LevelStruct/Bar2/Clock" instance=ExtResource( 12 )]
+position = Vector2( -790.273, -146.684 )
+
+[node name="Clock2" parent="LevelStruct/Bar2/Clock" instance=ExtResource( 12 )]
+position = Vector2( -1755.62, 41.6768 )
+
+[node name="Clock3" parent="LevelStruct/Bar2/Clock" instance=ExtResource( 12 )]
+position = Vector2( -2260.16, 53.4493 )
+
+[node name="Clock4" parent="LevelStruct/Bar2/Clock" instance=ExtResource( 12 )]
+position = Vector2( -3200.28, -123.139 )
+
+[node name="Sarsp" parent="LevelStruct/Bar2" instance=ExtResource( 13 )]
+position = Vector2( -96.3726, 26.3386 )
+
+[node name="Sarsp2" parent="LevelStruct/Bar2" instance=ExtResource( 13 )]
+position = Vector2( 12.1729, 26.3386 )
+
+[node name="Sarsp3" parent="LevelStruct/Bar2" instance=ExtResource( 13 )]
+position = Vector2( 192.453, 26.8386 )
+
+[node name="Sarsp" parent="LevelStruct/Bar2/Sarsp3" instance=ExtResource( 13 )]
+position = Vector2( 103.512, 0.246826 )
+
+[node name="Sarsp2" parent="LevelStruct/Bar2/Sarsp3" instance=ExtResource( 13 )]
+position = Vector2( 274.531, 0.219391 )
+
+[node name="Sarsp3" parent="LevelStruct/Bar2/Sarsp3" instance=ExtResource( 13 )]
+position = Vector2( 380.605, 7.58887 )
+rotation = 1.5708
 
 [node name="Blocks" type="Node" parent="."]
 
@@ -358,6 +565,10 @@ autoplay = true
 
 [node name="SpawnIncreaseLabel" type="Timer" parent="."]
 wait_time = 2.0
+
+[node name="ROBUCK" parent="." instance=ExtResource( 27 )]
+position = Vector2( 5307.11, 199.674 )
+z_index = -1
 [connection signal="timeout" from="EnemySpawnTimer" to="." method="spawnEnemies"]
 [connection signal="timeout" from="ScoreTimer" to="." method="_on_ScoreTimer_timeout"]
 [connection signal="timeout" from="SpawnIncreaseLabel" to="." method="fasterLabelShown"]
