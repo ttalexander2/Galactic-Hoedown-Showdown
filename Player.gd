@@ -34,7 +34,7 @@ var time_since_last_shot = 0;
 
 var has_jump = 1;
 
-
+var lives = 3
 
 
 
@@ -69,14 +69,16 @@ func _process(delta):
 		
 	match state:
 		MOVE:
-			move_state(delta)
+			if lives > 0:
+				move_state(delta)
 		ROLL:
 			pass
 		ATTACK:
-			attack_state(delta)
+			if lives > 0:
+				attack_state(delta)
 			
 			
-	if (time_since_last_shot >= 10000.0/BPM*delta):
+	if (lives > 0 and time_since_last_shot >= 10000.0/BPM*delta):
 		time_since_last_shot = 0;
 		shoot();
 
@@ -163,5 +165,8 @@ func _on_Player_input_event(viewport, event, shape_idx):
 	print("event")
 	pass # Replace with function body.
 	
-func imhit():
-	print("aahhhh")
+func hit():
+	lives -= 1
+	print("Lives: " + str(lives))
+	if lives < 1:
+		print("I'M DEAD!")

@@ -43,7 +43,6 @@ func move():
 	betweenShots.start()
 	
 func die():
-	print("dead")
 	self.queue_free();
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
