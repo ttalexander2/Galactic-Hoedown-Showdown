@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://assets/Wooden_Wall_Texture_2.png" type="Texture" id=2]
@@ -7,6 +7,7 @@
 [ext_resource path="res://BigGunEnemy.tscn" type="PackedScene" id=5]
 [ext_resource path="res://UI.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Main.gd" type="Script" id=7]
+[ext_resource path="res://assets/game jam.wav" type="AudioStream" id=8]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 1026.96, 4.36122 )
@@ -44,17 +45,16 @@ limit_bottom = 360
 
 [node name="Enemies" type="Node" parent="."]
 
-[node name="BigGunEnemy" parent="Enemies" instance=ExtResource( 5 )]
-position = Vector2( 664.093, 123.615 )
-
 [node name="BigGunEnemy2" parent="Enemies" instance=ExtResource( 5 )]
-position = Vector2( 1532.86, 276.709 )
-
-[node name="BigGunEnemy3" parent="Enemies" instance=ExtResource( 5 )]
-position = Vector2( 777.613, 298.521 )
+position = Vector2( 827.268, 274.927 )
 
 [node name="HUD" parent="." instance=ExtResource( 6 )]
 
 [node name="ScoreTimer" type="Timer" parent="."]
 autostart = true
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 8 )
+volume_db = -20.0
+autoplay = true
 [connection signal="timeout" from="ScoreTimer" to="." method="_on_ScoreTimer_timeout"]
