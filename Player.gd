@@ -82,6 +82,7 @@ func _process(delta):
 		time_since_last_shot = 0;
 		$Shoot.play_gun()
 		shoot();
+		BPM += 0.25;
 		
 func play_score_sound():
 	$Voice.play_score_sound()
