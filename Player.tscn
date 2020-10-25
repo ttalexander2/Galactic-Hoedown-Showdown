@@ -1,11 +1,11 @@
-[gd_scene load_steps=38 format=2]
+[gd_scene load_steps=39 format=2]
 
 [ext_resource path="res://Player.gd" type="Script" id=1]
 [ext_resource path="res://assets/CYBORG_TOM_SPRITESHEET.png" type="Texture" id=2]
 [ext_resource path="res://Voice.gd" type="Script" id=3]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 15.4259, 35.7425 )
+extents = Vector2( 20, 35.742 )
 
 [sub_resource type="Animation" id=2]
 resource_name = "Fall"
@@ -21,32 +21,6 @@ tracks/0/keys = {
 "transitions": PoolRealArray( 1 ),
 "update": 1,
 "values": [ 6 ]
-}
-tracks/1/type = "value"
-tracks/1/path = NodePath("Sprite:position")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 0,
-"values": [ Vector2( -10, 30 ) ]
-}
-tracks/2/type = "method"
-tracks/2/path = NodePath(".")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"values": [ {
-"args": [  ],
-"method": "set_sprite_position"
-} ]
 }
 
 [sub_resource type="Animation" id=3]
@@ -65,35 +39,9 @@ tracks/0/keys = {
 "update": 1,
 "values": [ 7, 8, 9, 10 ]
 }
-tracks/1/type = "value"
-tracks/1/path = NodePath("Sprite:position")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 0,
-"values": [ Vector2( 0, 0 ) ]
-}
-tracks/2/type = "method"
-tracks/2/path = NodePath(".")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"values": [ {
-"args": [  ],
-"method": "set_sprite_position"
-} ]
-}
 
 [sub_resource type="Animation" id=4]
-length = 0.1
+length = 0.2
 step = 0.05
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:frame")
@@ -102,41 +50,15 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.05 ),
+"times": PoolRealArray( 0, 0.1 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 1,
 "values": [ 21, 22 ]
 }
-tracks/1/type = "value"
-tracks/1/path = NodePath("Sprite:position")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/keys = {
-"times": PoolRealArray( 0, 0.05 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 0,
-"values": [ Vector2( 10, 0 ), Vector2( 10, 0 ) ]
-}
-tracks/2/type = "method"
-tracks/2/path = NodePath(".")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"values": [ {
-"args": [  ],
-"method": "set_sprite_position"
-} ]
-}
 
 [sub_resource type="Animation" id=5]
-length = 0.5
-step = 0.05
+length = 0.3
+step = 0.025
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:frame")
 tracks/0/interp = 1
@@ -144,41 +66,15 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.05, 0.1, 0.2, 0.3, 0.4 ),
+"times": PoolRealArray( 0, 0.025, 0.075, 0.125, 0.175, 0.25 ),
 "transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
 "update": 1,
 "values": [ 0, 1, 2, 3, 4, 5 ]
 }
-tracks/1/type = "value"
-tracks/1/path = NodePath("Sprite:position")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 0,
-"values": [ Vector2( -10, 30 ) ]
-}
-tracks/2/type = "method"
-tracks/2/path = NodePath(".")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"values": [ {
-"args": [  ],
-"method": "set_sprite_position"
-} ]
-}
 
 [sub_resource type="Animation" id=6]
 resource_name = "Jump_Fire"
-length = 0.1
+length = 0.2
 step = 0.05
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:frame")
@@ -187,36 +83,10 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.05 ),
+"times": PoolRealArray( 0, 0.15 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 1,
 "values": [ 35, 36 ]
-}
-tracks/1/type = "value"
-tracks/1/path = NodePath("Sprite:position")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 0,
-"values": [ Vector2( 4, 30 ) ]
-}
-tracks/2/type = "method"
-tracks/2/path = NodePath(".")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"values": [ {
-"args": [  ],
-"method": "set_sprite_position"
-} ]
 }
 
 [sub_resource type="Animation" id=7]
@@ -236,36 +106,10 @@ tracks/0/keys = {
 "update": 1,
 "values": [ 14, 15, 16, 17, 18, 19 ]
 }
-tracks/1/type = "value"
-tracks/1/path = NodePath("Sprite:position")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 0,
-"values": [ Vector2( 0, 0 ) ]
-}
-tracks/2/type = "method"
-tracks/2/path = NodePath(".")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"values": [ {
-"args": [  ],
-"method": "set_sprite_position"
-} ]
-}
 
 [sub_resource type="Animation" id=8]
 resource_name = "Run_Fire"
-length = 0.1
+length = 0.2
 step = 0.05
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:frame")
@@ -274,24 +118,10 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.05 ),
+"times": PoolRealArray( 0, 0.1 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 1,
 "values": [ 28, 29 ]
-}
-tracks/1/type = "method"
-tracks/1/path = NodePath(".")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"values": [ {
-"args": [  ],
-"method": "set_sprite_position"
-} ]
 }
 
 [sub_resource type="AnimationNodeAnimation" id=9]
@@ -354,6 +184,10 @@ auto_advance = true
 
 [sub_resource type="AnimationNodeStateMachineTransition" id=31]
 
+[sub_resource type="AnimationNodeStateMachineTransition" id=35]
+switch_mode = 2
+auto_advance = true
+
 [sub_resource type="AnimationNodeStateMachine" id=32]
 states/Fall/node = SubResource( 9 )
 states/Fall/position = Vector2( -1038.4, 374.351 )
@@ -369,9 +203,9 @@ states/Run/node = SubResource( 14 )
 states/Run/position = Vector2( -634.734, 144.351 )
 states/Run_Fire/node = SubResource( 15 )
 states/Run_Fire/position = Vector2( -169.396, 144.351 )
-transitions = [ "Jump", "Jump_Fire", SubResource( 16 ), "Fall", "Jump_Fire", SubResource( 17 ), "Jump_Fire", "Fall", SubResource( 18 ), "Jump", "Fall", SubResource( 19 ), "Fall", "Idle", SubResource( 20 ), "Idle", "Idle_Fire", SubResource( 21 ), "Idle_Fire", "Idle", SubResource( 22 ), "Idle", "Run", SubResource( 23 ), "Run", "Idle", SubResource( 24 ), "Run", "Jump", SubResource( 25 ), "Jump", "Run", SubResource( 26 ), "Idle", "Jump", SubResource( 27 ), "Jump", "Idle", SubResource( 28 ), "Run", "Run_Fire", SubResource( 29 ), "Run_Fire", "Run", SubResource( 30 ), "Fall", "Run", SubResource( 31 ) ]
+transitions = [ "Jump", "Jump_Fire", SubResource( 16 ), "Fall", "Jump_Fire", SubResource( 17 ), "Jump_Fire", "Fall", SubResource( 18 ), "Jump", "Fall", SubResource( 19 ), "Fall", "Idle", SubResource( 20 ), "Idle", "Idle_Fire", SubResource( 21 ), "Idle_Fire", "Idle", SubResource( 22 ), "Idle", "Run", SubResource( 23 ), "Run", "Idle", SubResource( 24 ), "Run", "Jump", SubResource( 25 ), "Jump", "Run", SubResource( 26 ), "Idle", "Jump", SubResource( 27 ), "Jump", "Idle", SubResource( 28 ), "Run", "Run_Fire", SubResource( 29 ), "Run_Fire", "Run", SubResource( 30 ), "Fall", "Run", SubResource( 31 ), "Jump_Fire", "Jump", SubResource( 35 ) ]
 start_node = "Idle"
-graph_offset = Vector2( -1371.73, -100.657 )
+graph_offset = Vector2( -1313.69, -98.2065 )
 
 [sub_resource type="AnimationNodeStateMachinePlayback" id=33]
 
@@ -384,10 +218,12 @@ __meta__ = {
 }
 
 [node name="Sprite" type="Sprite" parent="."]
+position = Vector2( 0, 30 )
 texture = ExtResource( 2 )
+offset = Vector2( 10, 0 )
 vframes = 6
 hframes = 7
-frame = 7
+frame = 5
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( 0.093, 7.5 )
@@ -405,6 +241,7 @@ anims/Run_Fire = SubResource( 8 )
 [node name="AnimationTree" type="AnimationTree" parent="."]
 tree_root = SubResource( 32 )
 anim_player = NodePath("../AnimationPlayer")
+active = true
 parameters/playback = SubResource( 33 )
 
 [node name="Position2D" type="Position2D" parent="."]
