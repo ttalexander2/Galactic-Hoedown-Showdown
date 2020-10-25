@@ -103,7 +103,7 @@ custom_constants/shadow_offset_x = 1
 custom_constants/shadow_as_outline = 1
 text = "Them robots took my sarsparilla!
 Your space cowboy automatically 
-shoots to the beat,
+shoots his gun,
 Destroy all robots!"
 __meta__ = {
 "_edit_use_anchors_": false

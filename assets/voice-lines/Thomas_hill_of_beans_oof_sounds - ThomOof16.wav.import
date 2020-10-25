@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/Thomas_hill_of_beans_oof_sounds - ThomOof16.wav-bf5622ee66ab8bb637bd3f43bb9a684f.sample"
+
+[deps]
+
+source_file="res://assets/voice-lines/Thomas_hill_of_beans_oof_sounds - ThomOof16.wav"
+dest_files=[ "res://.import/Thomas_hill_of_beans_oof_sounds - ThomOof16.wav-bf5622ee66ab8bb637bd3f43bb9a684f.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0
