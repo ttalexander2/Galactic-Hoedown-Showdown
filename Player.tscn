@@ -1,4 +1,4 @@
-[gd_scene load_steps=51 format=2]
+[gd_scene load_steps=52 format=2]
 
 [ext_resource path="res://Player.gd" type="Script" id=1]
 [ext_resource path="res://assets/CYBORG_TOM_SPRITESHEET.png" type="Texture" id=2]
@@ -10,7 +10,9 @@
 extents = Vector2( 20, 35.742 )
 
 [sub_resource type="Animation" id=2]
-resource_name = "Fall"
+resource_name = "Death"
+
+[sub_resource type="Animation" id=3]
 loop = true
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:frame")
@@ -37,7 +39,7 @@ tracks/1/keys = {
 "values": [ Color( 1, 1, 1, 1 ) ]
 }
 
-[sub_resource type="Animation" id=36]
+[sub_resource type="Animation" id=4]
 resource_name = "Hurt"
 length = 0.4
 tracks/0/type = "value"
@@ -65,8 +67,7 @@ tracks/1/keys = {
 "values": [ Color( 1, 0, 0, 1 ) ]
 }
 
-[sub_resource type="Animation" id=3]
-resource_name = "Idle"
+[sub_resource type="Animation" id=5]
 length = 0.8
 loop = true
 tracks/0/type = "value"
@@ -94,7 +95,7 @@ tracks/1/keys = {
 "values": [ Color( 1, 1, 1, 1 ) ]
 }
 
-[sub_resource type="Animation" id=4]
+[sub_resource type="Animation" id=6]
 length = 0.2
 step = 0.05
 tracks/0/type = "value"
@@ -122,7 +123,7 @@ tracks/1/keys = {
 "values": [ Color( 1, 1, 1, 1 ) ]
 }
 
-[sub_resource type="Animation" id=5]
+[sub_resource type="Animation" id=7]
 length = 0.3
 step = 0.025
 tracks/0/type = "value"
@@ -150,8 +151,7 @@ tracks/1/keys = {
 "values": [ Color( 1, 1, 1, 1 ) ]
 }
 
-[sub_resource type="Animation" id=6]
-resource_name = "Jump_Fire"
+[sub_resource type="Animation" id=8]
 length = 0.2
 step = 0.05
 tracks/0/type = "value"
@@ -179,8 +179,7 @@ tracks/1/keys = {
 "values": [ Color( 1, 1, 1, 1 ) ]
 }
 
-[sub_resource type="Animation" id=7]
-resource_name = "Run"
+[sub_resource type="Animation" id=9]
 length = 0.9
 loop = true
 step = 0.05
@@ -209,8 +208,7 @@ tracks/1/keys = {
 "values": [ Color( 1, 1, 1, 1 ) ]
 }
 
-[sub_resource type="Animation" id=8]
-resource_name = "Run_Fire"
+[sub_resource type="Animation" id=10]
 length = 0.2
 step = 0.05
 tracks/0/type = "value"
@@ -238,54 +236,48 @@ tracks/1/keys = {
 "values": [ Color( 1, 1, 1, 1 ) ]
 }
 
-[sub_resource type="AnimationNodeAnimation" id=9]
+[sub_resource type="AnimationNodeAnimation" id=11]
 animation = "Fall"
 
-[sub_resource type="AnimationNodeAnimation" id=37]
+[sub_resource type="AnimationNodeAnimation" id=12]
 animation = "Hurt"
 
-[sub_resource type="AnimationNodeAnimation" id=10]
+[sub_resource type="AnimationNodeAnimation" id=13]
 animation = "Idle"
 
-[sub_resource type="AnimationNodeAnimation" id=11]
+[sub_resource type="AnimationNodeAnimation" id=14]
 animation = "Idle_Fire"
 
-[sub_resource type="AnimationNodeAnimation" id=12]
+[sub_resource type="AnimationNodeAnimation" id=15]
 animation = "Jump"
 
-[sub_resource type="AnimationNodeAnimation" id=13]
+[sub_resource type="AnimationNodeAnimation" id=16]
 animation = "Jump_Fire"
 
-[sub_resource type="AnimationNodeAnimation" id=14]
+[sub_resource type="AnimationNodeAnimation" id=17]
 animation = "Run"
 
-[sub_resource type="AnimationNodeAnimation" id=15]
+[sub_resource type="AnimationNodeAnimation" id=18]
 animation = "Run_Fire"
 
-[sub_resource type="AnimationNodeStateMachineTransition" id=16]
-
-[sub_resource type="AnimationNodeStateMachineTransition" id=17]
-
-[sub_resource type="AnimationNodeStateMachineTransition" id=18]
-switch_mode = 2
-auto_advance = true
-
 [sub_resource type="AnimationNodeStateMachineTransition" id=19]
-switch_mode = 2
 
 [sub_resource type="AnimationNodeStateMachineTransition" id=20]
 
 [sub_resource type="AnimationNodeStateMachineTransition" id=21]
+switch_mode = 2
+auto_advance = true
 
 [sub_resource type="AnimationNodeStateMachineTransition" id=22]
 switch_mode = 2
-auto_advance = true
 
 [sub_resource type="AnimationNodeStateMachineTransition" id=23]
 
 [sub_resource type="AnimationNodeStateMachineTransition" id=24]
 
 [sub_resource type="AnimationNodeStateMachineTransition" id=25]
+switch_mode = 2
+auto_advance = true
 
 [sub_resource type="AnimationNodeStateMachineTransition" id=26]
 
@@ -296,14 +288,24 @@ auto_advance = true
 [sub_resource type="AnimationNodeStateMachineTransition" id=29]
 
 [sub_resource type="AnimationNodeStateMachineTransition" id=30]
-switch_mode = 2
-auto_advance = true
 
 [sub_resource type="AnimationNodeStateMachineTransition" id=31]
 
 [sub_resource type="AnimationNodeStateMachineTransition" id=32]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=33]
 switch_mode = 2
 auto_advance = true
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=34]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=35]
+switch_mode = 2
+auto_advance = true
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=36]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=37]
 
 [sub_resource type="AnimationNodeStateMachineTransition" id=38]
 
@@ -316,37 +318,33 @@ auto_advance = true
 [sub_resource type="AnimationNodeStateMachineTransition" id=42]
 
 [sub_resource type="AnimationNodeStateMachineTransition" id=43]
-
-[sub_resource type="AnimationNodeStateMachineTransition" id=44]
-
-[sub_resource type="AnimationNodeStateMachineTransition" id=45]
 switch_mode = 2
 auto_advance = true
 
-[sub_resource type="AnimationNodeStateMachine" id=33]
-states/Fall/node = SubResource( 9 )
+[sub_resource type="AnimationNodeStateMachine" id=44]
+states/Fall/node = SubResource( 11 )
 states/Fall/position = Vector2( -1038.4, 374.351 )
-states/Hurt/node = SubResource( 37 )
+states/Hurt/node = SubResource( 12 )
 states/Hurt/position = Vector2( -1118.69, 159.794 )
-states/Idle/node = SubResource( 10 )
+states/Idle/node = SubResource( 13 )
 states/Idle/position = Vector2( -734.734, -19.6492 )
-states/Idle_Fire/node = SubResource( 11 )
+states/Idle_Fire/node = SubResource( 14 )
 states/Idle_Fire/position = Vector2( -181.396, -19.6492 )
-states/Jump/node = SubResource( 12 )
+states/Jump/node = SubResource( 15 )
 states/Jump/position = Vector2( -723.396, 283.351 )
-states/Jump_Fire/node = SubResource( 13 )
+states/Jump_Fire/node = SubResource( 16 )
 states/Jump_Fire/position = Vector2( -148.396, 313.351 )
-states/Run/node = SubResource( 14 )
+states/Run/node = SubResource( 17 )
 states/Run/position = Vector2( -634.734, 144.351 )
-states/Run_Fire/node = SubResource( 15 )
+states/Run_Fire/node = SubResource( 18 )
 states/Run_Fire/position = Vector2( -169.396, 144.351 )
-transitions = [ "Jump", "Jump_Fire", SubResource( 16 ), "Fall", "Jump_Fire", SubResource( 17 ), "Jump_Fire", "Fall", SubResource( 18 ), "Jump", "Fall", SubResource( 19 ), "Fall", "Idle", SubResource( 20 ), "Idle", "Idle_Fire", SubResource( 21 ), "Idle_Fire", "Idle", SubResource( 22 ), "Idle", "Run", SubResource( 23 ), "Run", "Idle", SubResource( 24 ), "Run", "Jump", SubResource( 25 ), "Jump", "Run", SubResource( 26 ), "Idle", "Jump", SubResource( 27 ), "Jump", "Idle", SubResource( 28 ), "Run", "Run_Fire", SubResource( 29 ), "Run_Fire", "Run", SubResource( 30 ), "Fall", "Run", SubResource( 31 ), "Jump_Fire", "Jump", SubResource( 32 ), "Fall", "Hurt", SubResource( 38 ), "Jump", "Hurt", SubResource( 39 ), "Run", "Hurt", SubResource( 40 ), "Idle", "Hurt", SubResource( 41 ), "Idle_Fire", "Hurt", SubResource( 42 ), "Run_Fire", "Hurt", SubResource( 43 ), "Jump_Fire", "Hurt", SubResource( 44 ), "Hurt", "Idle", SubResource( 45 ) ]
+transitions = [ "Jump", "Jump_Fire", SubResource( 19 ), "Fall", "Jump_Fire", SubResource( 20 ), "Jump_Fire", "Fall", SubResource( 21 ), "Jump", "Fall", SubResource( 22 ), "Fall", "Idle", SubResource( 23 ), "Idle", "Idle_Fire", SubResource( 24 ), "Idle_Fire", "Idle", SubResource( 25 ), "Idle", "Run", SubResource( 26 ), "Run", "Idle", SubResource( 27 ), "Run", "Jump", SubResource( 28 ), "Jump", "Run", SubResource( 29 ), "Idle", "Jump", SubResource( 30 ), "Jump", "Idle", SubResource( 31 ), "Run", "Run_Fire", SubResource( 32 ), "Run_Fire", "Run", SubResource( 33 ), "Fall", "Run", SubResource( 34 ), "Jump_Fire", "Jump", SubResource( 35 ), "Fall", "Hurt", SubResource( 36 ), "Jump", "Hurt", SubResource( 37 ), "Run", "Hurt", SubResource( 38 ), "Idle", "Hurt", SubResource( 39 ), "Idle_Fire", "Hurt", SubResource( 40 ), "Run_Fire", "Hurt", SubResource( 41 ), "Jump_Fire", "Hurt", SubResource( 42 ), "Hurt", "Idle", SubResource( 43 ) ]
 start_node = "Idle"
-graph_offset = Vector2( -1313.69, -98.2065 )
+graph_offset = Vector2( -1313.69, 24.6635 )
 
-[sub_resource type="AnimationNodeStateMachinePlayback" id=34]
+[sub_resource type="AnimationNodeStateMachinePlayback" id=45]
 
-[sub_resource type="AudioStreamSample" id=35]
+[sub_resource type="AudioStreamSample" id=46]
 
 [node name="Player" type="KinematicBody2D"]
 input_pickable = true
@@ -359,27 +357,27 @@ texture = ExtResource( 2 )
 offset = Vector2( 10, 0 )
 vframes = 6
 hframes = 7
-frame = 10
+frame = 6
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( 0.093, 7.5 )
 shape = SubResource( 1 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-anims/Fall = SubResource( 2 )
-anims/Hurt = SubResource( 36 )
-anims/Idle = SubResource( 3 )
-anims/Idle_Fire = SubResource( 4 )
-anims/Jump = SubResource( 5 )
-anims/Jump_Fire = SubResource( 6 )
-anims/Run = SubResource( 7 )
-anims/Run_Fire = SubResource( 8 )
+anims/Death = SubResource( 2 )
+anims/Fall = SubResource( 3 )
+anims/Hurt = SubResource( 4 )
+anims/Idle = SubResource( 5 )
+anims/Idle_Fire = SubResource( 6 )
+anims/Jump = SubResource( 7 )
+anims/Jump_Fire = SubResource( 8 )
+anims/Run = SubResource( 9 )
+anims/Run_Fire = SubResource( 10 )
 
 [node name="AnimationTree" type="AnimationTree" parent="."]
-tree_root = SubResource( 33 )
+tree_root = SubResource( 44 )
 anim_player = NodePath("../AnimationPlayer")
-active = true
-parameters/playback = SubResource( 34 )
+parameters/playback = SubResource( 45 )
 
 [node name="Spawn0" type="Position2D" parent="."]
 position = Vector2( 753.431, -499.844 )
@@ -394,7 +392,7 @@ position = Vector2( 305.706, -232.928 )
 position = Vector2( -462.698, -330.18 )
 
 [node name="Voice" type="AudioStreamPlayer2D" parent="."]
-stream = SubResource( 35 )
+stream = SubResource( 46 )
 volume_db = 5.0
 script = ExtResource( 3 )
 
@@ -402,4 +400,6 @@ script = ExtResource( 3 )
 stream = ExtResource( 4 )
 volume_db = -10.0
 script = ExtResource( 5 )
+
+[node name="Splosion" type="Sprite" parent="."]
 [connection signal="input_event" from="." to="." method="_on_Player_input_event"]

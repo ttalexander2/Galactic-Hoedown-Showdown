@@ -28,13 +28,13 @@
 [ext_resource path="res://LevelPrefabs/Floor2Wide2.tscn" type="PackedScene" id=26]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 5.57153, 89.686 )
-
-[sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 248.924, 9.1701 )
 
-[sub_resource type="RectangleShape2D" id=3]
+[sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 223.558, 10 )
+
+[sub_resource type="RectangleShape2D" id=3]
+extents = Vector2( 5.57153, 89.686 )
 
 [node name="Main" type="Node2D"]
 script = ExtResource( 7 )
@@ -249,12 +249,12 @@ position = Vector2( 2336.88, 331.109 )
 [node name="Leftmost wall" type="CollisionShape2D" parent="LevelStruct"]
 position = Vector2( -10.6066, 118.087 )
 rotation = 1.5708
-shape = SubResource( 2 )
+shape = SubResource( 1 )
 one_way_collision = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="LevelStruct"]
 position = Vector2( -224.153, 346.482 )
-shape = SubResource( 3 )
+shape = SubResource( 2 )
 
 [node name="Floor2Wide1" parent="LevelStruct" instance=ExtResource( 25 )]
 position = Vector2( 2528.89, 263.127 )
@@ -279,7 +279,7 @@ position = Vector2( 732.467, -196.418 )
 
 [node name="CollisionShape2D3" type="CollisionShape2D" parent="LevelStruct/Floor2Wide1"]
 position = Vector2( 732.538, -343.262 )
-shape = SubResource( 1 )
+shape = SubResource( 3 )
 
 [node name="Railing2" parent="LevelStruct/Floor2Wide1" instance=ExtResource( 21 )]
 position = Vector2( 89.9758, -108.652 )

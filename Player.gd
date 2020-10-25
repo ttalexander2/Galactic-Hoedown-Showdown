@@ -137,6 +137,12 @@ func move_state(delta):
 	if (direction != $Sprite.scale.x):
 		$Sprite.scale.x = direction;
 		
+	var animation = animationState.get_current_node()
+	if animation == "Run" or animation == "Idle" or animation == "Idle_Fire" or animation == "Run_Fire":
+		has_jump = 1;
+	else:
+		has_jump = 0;
+		
 
 	
 	if input_vector != Vector2.ZERO:
@@ -144,7 +150,7 @@ func move_state(delta):
 		animationTree.set("parameters/Move/blend_position", input_vector)
 		#animationTree.set("parameters/Attack/blend_position", input_vector)
 		animationState.travel("Run")
-		velocity.x = min(input_vector.x * SPEED * delta, MAX_SPEED * delta)
+		velocity.x = min(input_vector.x * SPEED * 0.006, MAX_SPEED * 0.006)
 		
 	else:
 		animationState.travel("Idle")
@@ -155,7 +161,7 @@ func move_state(delta):
 		velocity.y = JUMP
 		animationState.travel("Jump");
 	else:
-		velocity.y += delta * GRAVITY
+		velocity.y += 0.006 * GRAVITY
 		
 		
 	velocity = move_and_slide(velocity)
@@ -165,9 +171,6 @@ func move_state(delta):
 	
 	if (velocity.y > 0):
 		animationState.travel("Fall")
-		
-	if (velocity.y == 0):
-		has_jump = 1;
 	
 	if Input.is_action_just_pressed("attack"):
 		#state = ATTACK
@@ -194,7 +197,7 @@ func hit():
 		return
 	lives -= 1
 	if lives > -1:
-		velocity += Vector2(55000*direction, -150000) * last_delta;
+		velocity += Vector2(55000*direction, -150000) * 0.006;
 		playerHealth[lives].hide()
 		animationState.travel("Hurt")
 		$Voice.play_hurt_sound()
