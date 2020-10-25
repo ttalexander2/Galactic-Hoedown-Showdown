@@ -1,4 +1,4 @@
-[gd_scene load_steps=41 format=2]
+[gd_scene load_steps=51 format=2]
 
 [ext_resource path="res://Player.gd" type="Script" id=1]
 [ext_resource path="res://assets/CYBORG_TOM_SPRITESHEET.png" type="Texture" id=2]
@@ -24,6 +24,46 @@ tracks/0/keys = {
 "update": 1,
 "values": [ 6 ]
 }
+tracks/1/type = "value"
+tracks/1/path = NodePath("Sprite:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=36]
+resource_name = "Hurt"
+length = 0.4
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 5 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Sprite:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 0, 0, 1 ) ]
+}
 
 [sub_resource type="Animation" id=3]
 resource_name = "Idle"
@@ -41,6 +81,18 @@ tracks/0/keys = {
 "update": 1,
 "values": [ 7, 8, 9, 10 ]
 }
+tracks/1/type = "value"
+tracks/1/path = NodePath("Sprite:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ) ]
+}
 
 [sub_resource type="Animation" id=4]
 length = 0.2
@@ -56,6 +108,18 @@ tracks/0/keys = {
 "transitions": PoolRealArray( 1, 1 ),
 "update": 1,
 "values": [ 21, 22 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Sprite:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ) ]
 }
 
 [sub_resource type="Animation" id=5]
@@ -73,6 +137,18 @@ tracks/0/keys = {
 "update": 1,
 "values": [ 0, 1, 2, 3, 4, 5 ]
 }
+tracks/1/type = "value"
+tracks/1/path = NodePath("Sprite:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ) ]
+}
 
 [sub_resource type="Animation" id=6]
 resource_name = "Jump_Fire"
@@ -89,6 +165,18 @@ tracks/0/keys = {
 "transitions": PoolRealArray( 1, 1 ),
 "update": 1,
 "values": [ 35, 36 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Sprite:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ) ]
 }
 
 [sub_resource type="Animation" id=7]
@@ -108,6 +196,18 @@ tracks/0/keys = {
 "update": 1,
 "values": [ 14, 15, 16, 17, 18, 19 ]
 }
+tracks/1/type = "value"
+tracks/1/path = NodePath("Sprite:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ) ]
+}
 
 [sub_resource type="Animation" id=8]
 resource_name = "Run_Fire"
@@ -125,9 +225,24 @@ tracks/0/keys = {
 "update": 1,
 "values": [ 28, 29 ]
 }
+tracks/1/type = "value"
+tracks/1/path = NodePath("Sprite:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ) ]
+}
 
 [sub_resource type="AnimationNodeAnimation" id=9]
 animation = "Fall"
+
+[sub_resource type="AnimationNodeAnimation" id=37]
+animation = "Hurt"
 
 [sub_resource type="AnimationNodeAnimation" id=10]
 animation = "Idle"
@@ -190,9 +305,29 @@ auto_advance = true
 switch_mode = 2
 auto_advance = true
 
+[sub_resource type="AnimationNodeStateMachineTransition" id=38]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=39]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=40]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=41]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=42]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=43]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=44]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=45]
+switch_mode = 2
+auto_advance = true
+
 [sub_resource type="AnimationNodeStateMachine" id=33]
 states/Fall/node = SubResource( 9 )
 states/Fall/position = Vector2( -1038.4, 374.351 )
+states/Hurt/node = SubResource( 37 )
+states/Hurt/position = Vector2( -1118.69, 159.794 )
 states/Idle/node = SubResource( 10 )
 states/Idle/position = Vector2( -734.734, -19.6492 )
 states/Idle_Fire/node = SubResource( 11 )
@@ -205,7 +340,7 @@ states/Run/node = SubResource( 14 )
 states/Run/position = Vector2( -634.734, 144.351 )
 states/Run_Fire/node = SubResource( 15 )
 states/Run_Fire/position = Vector2( -169.396, 144.351 )
-transitions = [ "Jump", "Jump_Fire", SubResource( 16 ), "Fall", "Jump_Fire", SubResource( 17 ), "Jump_Fire", "Fall", SubResource( 18 ), "Jump", "Fall", SubResource( 19 ), "Fall", "Idle", SubResource( 20 ), "Idle", "Idle_Fire", SubResource( 21 ), "Idle_Fire", "Idle", SubResource( 22 ), "Idle", "Run", SubResource( 23 ), "Run", "Idle", SubResource( 24 ), "Run", "Jump", SubResource( 25 ), "Jump", "Run", SubResource( 26 ), "Idle", "Jump", SubResource( 27 ), "Jump", "Idle", SubResource( 28 ), "Run", "Run_Fire", SubResource( 29 ), "Run_Fire", "Run", SubResource( 30 ), "Fall", "Run", SubResource( 31 ), "Jump_Fire", "Jump", SubResource( 32 ) ]
+transitions = [ "Jump", "Jump_Fire", SubResource( 16 ), "Fall", "Jump_Fire", SubResource( 17 ), "Jump_Fire", "Fall", SubResource( 18 ), "Jump", "Fall", SubResource( 19 ), "Fall", "Idle", SubResource( 20 ), "Idle", "Idle_Fire", SubResource( 21 ), "Idle_Fire", "Idle", SubResource( 22 ), "Idle", "Run", SubResource( 23 ), "Run", "Idle", SubResource( 24 ), "Run", "Jump", SubResource( 25 ), "Jump", "Run", SubResource( 26 ), "Idle", "Jump", SubResource( 27 ), "Jump", "Idle", SubResource( 28 ), "Run", "Run_Fire", SubResource( 29 ), "Run_Fire", "Run", SubResource( 30 ), "Fall", "Run", SubResource( 31 ), "Jump_Fire", "Jump", SubResource( 32 ), "Fall", "Hurt", SubResource( 38 ), "Jump", "Hurt", SubResource( 39 ), "Run", "Hurt", SubResource( 40 ), "Idle", "Hurt", SubResource( 41 ), "Idle_Fire", "Hurt", SubResource( 42 ), "Run_Fire", "Hurt", SubResource( 43 ), "Jump_Fire", "Hurt", SubResource( 44 ), "Hurt", "Idle", SubResource( 45 ) ]
 start_node = "Idle"
 graph_offset = Vector2( -1313.69, -98.2065 )
 
@@ -232,6 +367,7 @@ shape = SubResource( 1 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/Fall = SubResource( 2 )
+anims/Hurt = SubResource( 36 )
 anims/Idle = SubResource( 3 )
 anims/Idle_Fire = SubResource( 4 )
 anims/Jump = SubResource( 5 )
