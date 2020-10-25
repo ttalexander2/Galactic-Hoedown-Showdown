@@ -5,7 +5,7 @@ const MAX_SPEED = 200
 const SPEED = 200
 const FRICTION = 2000
 const JUMP = -900
-const GRAVITY = 3000
+const GRAVITY = 2500
 
 enum {
 	MOVE,
@@ -26,11 +26,13 @@ var flag = false
 # Declare member variables here. Examples:
 # var a = 2
 # var b = "text"
-const BPM = 130.0;
+const BPM = 60.0;
 
 var time_begin;
 var time_delay = 0;
 var time_since_last_shot = 0;
+
+var has_jump = 1;
 
 
 
@@ -58,10 +60,9 @@ func _process(delta):
 	
 	time_since_last_shot += delta;
 		# print(str(time_since_last_shot, ">=", 1.0/bpm*100));
-	
-	if (time_since_last_shot >= 10000.0/BPM*delta):
-		time_since_last_shot = 0;
-		shoot();
+		
+	if (Input.is_action_just_pressed("ui_page_up")):
+		$Voice.play_score_sound()
 		
 	match state:
 		MOVE:
@@ -70,6 +71,11 @@ func _process(delta):
 			pass
 		ATTACK:
 			attack_state(delta)
+			
+			
+	if (time_since_last_shot >= 10000.0/BPM*delta):
+		time_since_last_shot = 0;
+		shoot();
 
 		
 func shoot():
@@ -78,6 +84,15 @@ func shoot():
 	shot.set_direction(direction)
 	get_node("/root/Main").add_child(shot)
 	shot.global_position = self.global_position
+	shot.global_position.x += direction * 50.0
+	var animation = animationState.get_current_node()
+	if (animation == "Idle" || animation == "Idle_Fire"):
+		animationState.start("Idle_Fire");
+	elif (animation == "Run" || animation == "Run_Fire"):
+		animationState.start("Run_Fire");
+	elif (animation == "Jump" || animation == "Fall" || animation == "Jump_Fire"):
+		animationState.start("Jump_Fire");
+	
 
 
 func move_state(delta):
@@ -90,8 +105,8 @@ func move_state(delta):
 	if (input_vector.x != 0):
 		direction = input_vector.x
 		
-	if (direction != 1 != $Sprite.flip_h):
-		$Sprite.set_flip_h(direction != 1);
+	if (direction != $Sprite.scale.x):
+		$Sprite.scale.x = direction;
 		
 
 	
@@ -104,15 +119,26 @@ func move_state(delta):
 		
 	else:
 		animationState.travel("Idle")
-		
 		velocity = Vector2(velocity.move_toward(Vector2.ZERO, FRICTION * delta).x, velocity.y)
 		
-	if Input.is_action_just_pressed("ui_up"):
+	if Input.is_action_just_pressed("ui_up") && has_jump > 0:
+		has_jump = 0;
 		velocity.y = JUMP
+		animationState.travel("Jump");
 	else:
 		velocity.y += delta * GRAVITY
 		
+		
 	velocity = move_and_slide(velocity)
+	
+	if (velocity.y < 0):
+		animationState.travel("Jump");
+	
+	if (velocity.y > 0):
+		animationState.travel("Fall")
+		
+	if (velocity.y == 0):
+		has_jump = 1;
 	
 	if Input.is_action_just_pressed("attack"):
 		#state = ATTACK
