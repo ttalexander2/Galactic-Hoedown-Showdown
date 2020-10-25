@@ -17,6 +17,7 @@ export (PackedScene) var bullet
 # var b = "text"
 var playerDirection
 onready var player = get_node("/root/Main/Player")
+onready var main = get_node("/root/Main")
 onready var shootingTime = $ShootingTime
 onready var betweenShots = $BetweenShots
 var shooting = false
@@ -43,6 +44,7 @@ func move():
 	betweenShots.start()
 	
 func die():
+	main.killed_mob()
 	self.queue_free();
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
