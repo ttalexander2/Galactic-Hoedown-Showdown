@@ -34,7 +34,8 @@ margin_top = -59.5
 margin_right = 250.5
 margin_bottom = -3.5
 custom_fonts/font = SubResource( 1 )
-text = "Yeeha! They're coming faster!"
+text = "Get a wiggle on,
+they're coming faster!"
 align = 1
 __meta__ = {
 "_edit_use_anchors_": false

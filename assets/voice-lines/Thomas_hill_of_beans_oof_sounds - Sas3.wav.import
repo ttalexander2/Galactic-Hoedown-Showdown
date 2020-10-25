@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/Thomas_hill_of_beans_oof_sounds - Sas3.wav-11ef034fedd7113f9cc4952f50cc149c.sample"
+
+[deps]
+
+source_file="res://assets/voice-lines/Thomas_hill_of_beans_oof_sounds - Sas3.wav"
+dest_files=[ "res://.import/Thomas_hill_of_beans_oof_sounds - Sas3.wav-11ef034fedd7113f9cc4952f50cc149c.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0
