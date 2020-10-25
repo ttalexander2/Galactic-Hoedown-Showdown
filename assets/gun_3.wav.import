@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/gun_3.wav-45b9b067e788d127168727ec8596e76b.sample"
+
+[deps]
+
+source_file="res://assets/gun_3.wav"
+dest_files=[ "res://.import/gun_3.wav-45b9b067e788d127168727ec8596e76b.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0
