@@ -82,7 +82,16 @@ func _process(delta):
 		time_since_last_shot = 0;
 		$Shoot.play_gun()
 		shoot();
+		BPM += 0.25;
+		
+func play_score_sound():
+	$Voice.play_score_sound()
+	
+func play_kill_sound():
+	$Voice.play_kill_sound()
 
+func play_death_sound():
+	$Voice.play_death_sound()
 		
 func shoot():
 	#print(BPM)
@@ -170,4 +179,5 @@ func hit():
 	lives -= 1
 	print("Lives: " + str(lives))
 	if lives < 1:
+		play_death_sound()
 		print("I'M DEAD!")

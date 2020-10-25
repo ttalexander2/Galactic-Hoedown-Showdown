@@ -39,7 +39,6 @@ var samples_on_score = [
 ]
 
 var samples_on_death = {
-	"3.00": preload("res://assets/voice-lines/Cyborg Tommy - 3.00 - Hill of bees.wav"),
 	"3.01": preload("res://assets/voice-lines/Cyborg Tommy - 3.01 Don't let your yearnings.wav"),
 	"3.02": preload("res://assets/voice-lines/Cyborg Tommy - 3.02 Boot Licker.wav"),
 	"3.03": preload("res://assets/voice-lines/Cyborg Tommy - 3.03 I'll b back.wav"),
