@@ -53,6 +53,39 @@ var samples_on_death = {
 	"3.12": preload("res://assets/voice-lines/Cyborg Tommy - 3.12 Rode hard and put up wet.wav"),
 }
 
+var samples_on_hurt = [
+	preload("res://assets/voice-lines/Thomas_hill_of_beans_oof_sounds - ThomOof1.wav"),
+	preload("res://assets/voice-lines/Thomas_hill_of_beans_oof_sounds - ThomOof2.wav"),
+	preload("res://assets/voice-lines/Thomas_hill_of_beans_oof_sounds - ThomOof3.wav"),
+	preload("res://assets/voice-lines/Thomas_hill_of_beans_oof_sounds - ThomOof4.wav"),
+	preload("res://assets/voice-lines/Thomas_hill_of_beans_oof_sounds - ThomOof5.wav"),
+	preload("res://assets/voice-lines/Thomas_hill_of_beans_oof_sounds - ThomOof6.wav"),
+	preload("res://assets/voice-lines/Thomas_hill_of_beans_oof_sounds - ThomOof7.wav"),
+	preload("res://assets/voice-lines/Thomas_hill_of_beans_oof_sounds - ThomOof8.wav"),
+	preload("res://assets/voice-lines/Thomas_hill_of_beans_oof_sounds - ThomOof9.wav"),
+	preload("res://assets/voice-lines/Thomas_hill_of_beans_oof_sounds - ThomOof10.wav"),
+	preload("res://assets/voice-lines/Thomas_hill_of_beans_oof_sounds - ThomOof11.wav"),
+	preload("res://assets/voice-lines/Thomas_hill_of_beans_oof_sounds - ThomOof12.wav"),
+	preload("res://assets/voice-lines/Thomas_hill_of_beans_oof_sounds - ThomOof13.wav"),
+	preload("res://assets/voice-lines/Thomas_hill_of_beans_oof_sounds - ThomOof14.wav"),
+	preload("res://assets/voice-lines/Thomas_hill_of_beans_oof_sounds - ThomOof15.wav"),
+	preload("res://assets/voice-lines/Thomas_hill_of_beans_oof_sounds - ThomOof16.wav"),
+	preload("res://assets/voice-lines/Thomas_hill_of_beans_oof_sounds - ThomOof17.wav"),
+	preload("res://assets/voice-lines/Thomas_hill_of_beans_oof_sounds - ThomOof18.wav"),
+	preload("res://assets/voice-lines/Thomas_hill_of_beans_oof_sounds - ThomOof19.wav"),
+	preload("res://assets/voice-lines/Thomas_hill_of_beans_oof_sounds - ThomOof20.wav"),
+	preload("res://assets/voice-lines/Thomas_hill_of_beans_oof_sounds - ThomOof21.wav"),
+	preload("res://assets/voice-lines/Thomas_hill_of_beans_oof_sounds - ThomOof22.wav"),
+	preload("res://assets/voice-lines/Thomas_hill_of_beans_oof_sounds - ThomOof23.wav"),
+	preload("res://assets/voice-lines/Thomas_hill_of_beans_oof_sounds - ThomOof24.wav"),
+	preload("res://assets/voice-lines/Thomas_hill_of_beans_oof_sounds - ThomOof25.wav"),
+	preload("res://assets/voice-lines/Thomas_hill_of_beans_oof_sounds - ThomOof26.wav"),
+	preload("res://assets/voice-lines/Thomas_hill_of_beans_oof_sounds - ThomOof27.wav"),
+	preload("res://assets/voice-lines/Thomas_hill_of_beans_oof_sounds - ThomOof28.wav"),
+	preload("res://assets/voice-lines/Thomas_hill_of_beans_oof_sounds - ThomOof29.wav"),
+
+]
+
 var score_sound = 0;
 
 
@@ -76,5 +109,10 @@ func play_death_sound():
 	if not self.playing:
 		var sound = samples_on_death.keys()[randi() % samples_on_death.keys().size()]
 		stream = samples_on_death[sound]
+		play()
+		
+func play_hurt_sound():
+	if not self.playing:
+		stream = samples_on_hurt[randi() % samples_on_death.size()]
 		play()
 	

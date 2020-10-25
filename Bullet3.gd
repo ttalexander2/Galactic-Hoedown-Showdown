@@ -29,9 +29,10 @@ func destroy():
 
 
 func _on_Area2D_body_entered(body):
-	if body.get_class() == "KinematicBody2D":
+	if body.get_class() == "KinematicBody2D" and body != player:
 		kill_sound += 0
 		if kill_sound >= 5:
 			player.play_kill_sound()
 			kill_sound = 0
 		body.boom()
+		self.destroy()

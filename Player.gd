@@ -1,9 +1,8 @@
 extends KinematicBody2D
 
-const ACCELERATION = 5000
-const MAX_SPEED = 200
-const SPEED = 200
-const FRICTION = 2000
+const SPEED = 45000
+const MAX_SPEED = 50000
+const FRICTION = 20
 const JUMP = -900
 const GRAVITY = 2500
 
@@ -16,6 +15,8 @@ enum {
 var state = MOVE
 var velocity = Vector2.ZERO
 var direction = 1
+
+var hurt = false
 
 onready var animationPlayer = $AnimationPlayer
 onready var animationTree = $AnimationTree
@@ -141,11 +142,11 @@ func move_state(delta):
 		animationTree.set("parameters/Move/blend_position", input_vector)
 		#animationTree.set("parameters/Attack/blend_position", input_vector)
 		animationState.travel("Run")
-		velocity = Vector2(velocity.move_toward(input_vector * MAX_SPEED * delta * SPEED, ACCELERATION * delta).x, velocity.y)
+		velocity.x = min(input_vector.x * SPEED * delta, MAX_SPEED * delta)
 		
 	else:
 		animationState.travel("Idle")
-		velocity = Vector2(velocity.move_toward(Vector2.ZERO, FRICTION * delta).x, velocity.y)
+		velocity = Vector2(velocity.move_toward(Vector2.ZERO, FRICTION).x, velocity.y)
 		
 	if Input.is_action_just_pressed("ui_up") and has_jump > 0:
 		has_jump = 0;
@@ -187,10 +188,14 @@ func _on_Player_input_event(viewport, event, shape_idx):
 	pass # Replace with function body.
 	
 func hit():
+	if animationState.get_current_node() == "Hurt":
+		return
 	lives -= 1
 	if lives > -1:
+		velocity += Vector2(500*direction, -1000)
 		playerHealth[lives].hide()
+		animationState.travel("Hurt")
+		$Voice.play_hurt_sound()
 	print("Lives: " + str(lives))
 	if lives < 1:
 		play_death_sound()
-		print("I'M DEAD!")
