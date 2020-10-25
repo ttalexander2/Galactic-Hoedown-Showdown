@@ -13,47 +13,131 @@ texture = ExtResource( 1 )
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( -74.0384, 78.4297 )
 shape = SubResource( 1 )
+one_way_collision = true
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
 position = Vector2( -65.0075, 67.3334 )
 shape = SubResource( 1 )
+one_way_collision = true
 
 [node name="CollisionShape2D3" type="CollisionShape2D" parent="."]
 position = Vector2( -53.012, 53.401 )
 shape = SubResource( 1 )
+one_way_collision = true
 
 [node name="CollisionShape2D4" type="CollisionShape2D" parent="."]
 position = Vector2( -42.1056, 38.3565 )
 shape = SubResource( 1 )
+one_way_collision = true
 
 [node name="CollisionShape2D5" type="CollisionShape2D" parent="."]
 position = Vector2( -26.0849, 25.338 )
 shape = SubResource( 1 )
+one_way_collision = true
 
 [node name="CollisionShape2D6" type="CollisionShape2D" parent="."]
 position = Vector2( -10.0578, 12.3102 )
 shape = SubResource( 1 )
+one_way_collision = true
 
 [node name="CollisionShape2D7" type="CollisionShape2D" parent="."]
 position = Vector2( 2.01041, -4.6988 )
 shape = SubResource( 1 )
+one_way_collision = true
 
 [node name="CollisionShape2D8" type="CollisionShape2D" parent="."]
 position = Vector2( 17.0137, -18.669 )
 shape = SubResource( 1 )
+one_way_collision = true
 
 [node name="CollisionShape2D9" type="CollisionShape2D" parent="."]
 position = Vector2( 30.9005, -27.6042 )
 shape = SubResource( 1 )
+one_way_collision = true
 
 [node name="CollisionShape2D10" type="CollisionShape2D" parent="."]
 position = Vector2( 43.0298, -44.7201 )
 shape = SubResource( 1 )
+one_way_collision = true
 
 [node name="CollisionShape2D11" type="CollisionShape2D" parent="."]
 position = Vector2( 57.0138, -61.562 )
 shape = SubResource( 1 )
+one_way_collision = true
 
 [node name="CollisionShape2D12" type="CollisionShape2D" parent="."]
 position = Vector2( 73.967, -77.626 )
 shape = SubResource( 1 )
+one_way_collision = true
+
+[node name="CollisionShape2D13" type="CollisionShape2D" parent="."]
+position = Vector2( -77.5424, 82.2674 )
+rotation = -1.5708
+shape = SubResource( 1 )
+one_way_collision = true
+
+[node name="CollisionShape2D14" type="CollisionShape2D" parent="."]
+position = Vector2( -68.5115, 71.3379 )
+rotation = -1.5708
+shape = SubResource( 1 )
+one_way_collision = true
+
+[node name="CollisionShape2D15" type="CollisionShape2D" parent="."]
+position = Vector2( -56.6828, 57.2387 )
+rotation = -1.5708
+shape = SubResource( 1 )
+one_way_collision = true
+
+[node name="CollisionShape2D16" type="CollisionShape2D" parent="."]
+position = Vector2( -44.4416, 42.0273 )
+rotation = -1.5708
+shape = SubResource( 1 )
+one_way_collision = true
+
+[node name="CollisionShape2D17" type="CollisionShape2D" parent="."]
+position = Vector2( -29.0883, 29.1757 )
+rotation = -1.5708
+shape = SubResource( 1 )
+one_way_collision = true
+
+[node name="CollisionShape2D18" type="CollisionShape2D" parent="."]
+position = Vector2( -13.3949, 16.1479 )
+rotation = -1.5708
+shape = SubResource( 1 )
+one_way_collision = true
+
+[node name="CollisionShape2D19" type="CollisionShape2D" parent="."]
+position = Vector2( -1.6604, -0.69428 )
+rotation = -1.5708
+shape = SubResource( 1 )
+one_way_collision = true
+
+[node name="CollisionShape2D20" type="CollisionShape2D" parent="."]
+position = Vector2( 13.3429, -15.4988 )
+rotation = -1.5708
+shape = SubResource( 1 )
+one_way_collision = true
+
+[node name="CollisionShape2D21" type="CollisionShape2D" parent="."]
+position = Vector2( 27.3965, -23.9334 )
+rotation = -1.5708
+shape = SubResource( 1 )
+one_way_collision = true
+
+[node name="CollisionShape2D22" type="CollisionShape2D" parent="."]
+position = Vector2( 39.359, -40.8824 )
+rotation = -1.5708
+shape = SubResource( 1 )
+one_way_collision = true
+
+[node name="CollisionShape2D23" type="CollisionShape2D" parent="."]
+position = Vector2( 53.6767, -58.2249 )
+rotation = -1.5708
+shape = SubResource( 1 )
+one_way_collision = true
+
+[node name="CollisionShape2D24" type="CollisionShape2D" parent="."]
+position = Vector2( 70.2962, -74.2889 )
+rotation = -1.5708
+shape = SubResource( 1 )
+one_way_collision = true
