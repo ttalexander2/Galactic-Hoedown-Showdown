@@ -3,8 +3,8 @@ extends KinematicBody2D
 const SPEED = 45000
 const MAX_SPEED = 50000
 const FRICTION = 20
-const JUMP = -900
-const GRAVITY = 2500
+const JUMP = -750
+const GRAVITY = 5000
 
 enum {
 	MOVE,
@@ -57,6 +57,17 @@ func _ready():
 
 	time_begin = OS.get_ticks_usec();
 	animationTree.active = true
+	
+func _physics_process(delta):
+	match state:
+		MOVE:
+			if lives > 0:
+				move_state(delta)
+		ROLL:
+			pass
+		ATTACK:
+			if lives > 0:
+				attack_state(delta)
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -80,16 +91,6 @@ func _process(delta):
 		
 	if (Input.is_action_just_pressed("ui_page_up")):
 		$Voice.play_score_sound()
-		
-	match state:
-		MOVE:
-			if lives > 0:
-				move_state(delta)
-		ROLL:
-			pass
-		ATTACK:
-			if lives > 0:
-				attack_state(delta)
 			
 			
 	if (lives > 0 and time_since_last_shot >= 10000.0/BPM*delta):
@@ -137,6 +138,12 @@ func move_state(delta):
 	if (direction != $Sprite.scale.x):
 		$Sprite.scale.x = direction;
 		
+	var animation = animationState.get_current_node()
+	if animation == "Run" or animation == "Idle" or animation == "Idle_Fire" or animation == "Run_Fire":
+		has_jump = 1;
+	else:
+		has_jump = 0;
+		
 
 	
 	if input_vector != Vector2.ZERO:
@@ -144,7 +151,7 @@ func move_state(delta):
 		animationTree.set("parameters/Move/blend_position", input_vector)
 		#animationTree.set("parameters/Attack/blend_position", input_vector)
 		animationState.travel("Run")
-		velocity.x = min(input_vector.x * SPEED * delta, MAX_SPEED * delta)
+		velocity.x = min(input_vector.x * SPEED * 0.006, MAX_SPEED * 0.006)
 		
 	else:
 		animationState.travel("Idle")
@@ -155,19 +162,19 @@ func move_state(delta):
 		velocity.y = JUMP
 		animationState.travel("Jump");
 	else:
-		velocity.y += delta * GRAVITY
+		velocity.y += 0.006 * GRAVITY
 		
 		
 	velocity = move_and_slide(velocity)
+	
+	if (animation == "Jump" and velocity.y == 0):
+		animationState.travel("Fall")
 	
 	if (velocity.y < 0):
 		animationState.travel("Jump");
 	
 	if (velocity.y > 0):
 		animationState.travel("Fall")
-		
-	if (velocity.y == 0):
-		has_jump = 1;
 	
 	if Input.is_action_just_pressed("attack"):
 		#state = ATTACK
@@ -194,7 +201,7 @@ func hit():
 		return
 	lives -= 1
 	if lives > -1:
-		velocity += Vector2(55000*direction, -150000) * last_delta;
+		velocity += Vector2(5500*direction, -15000) * 0.006;
 		playerHealth[lives].hide()
 		animationState.travel("Hurt")
 		$Voice.play_hurt_sound()

@@ -28,11 +28,14 @@
 [ext_resource path="res://LevelPrefabs/Floor2Wide2.tscn" type="PackedScene" id=26]
 [ext_resource path="res://LevelPrefabs/ROBUCK.tscn" type="PackedScene" id=27]
 
-[sub_resource type="RectangleShape2D" id=2]
+[sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 248.924, 9.1701 )
 
-[sub_resource type="RectangleShape2D" id=3]
+[sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 223.558, 10 )
+
+[sub_resource type="RectangleShape2D" id=3]
+extents = Vector2( 5.57153, 89.686 )
 
 [sub_resource type="RectangleShape2D" id=4]
 extents = Vector2( 347.122, 8.66425 )
@@ -294,7 +297,17 @@ z_index = -1
 position = Vector2( 1239.46, 263.221 )
 
 [node name="PoolTable2" parent="LevelStruct" instance=ExtResource( 16 )]
-position = Vector2( 2322.05, 330.932 )
+position = Vector2( 2336.88, 331.109 )
+
+[node name="Leftmost wall" type="CollisionShape2D" parent="LevelStruct"]
+position = Vector2( -10.6066, 118.087 )
+rotation = 1.5708
+shape = SubResource( 1 )
+one_way_collision = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LevelStruct"]
+position = Vector2( -224.153, 346.482 )
+shape = SubResource( 2 )
 
 [node name="Floor2Wide1" parent="LevelStruct" instance=ExtResource( 25 )]
 position = Vector2( 2528.89, 263.127 )
