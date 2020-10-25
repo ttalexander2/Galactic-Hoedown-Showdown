@@ -26,7 +26,7 @@ var flag = false
 # Declare member variables here. Examples:
 # var a = 2
 # var b = "text"
-const BPM = 60.0;
+var BPM = 60.0;
 
 var time_begin;
 var time_delay = 0;
@@ -80,6 +80,7 @@ func _process(delta):
 			
 	if (lives > 0 and time_since_last_shot >= 10000.0/BPM*delta):
 		time_since_last_shot = 0;
+		
 		shoot();
 
 		

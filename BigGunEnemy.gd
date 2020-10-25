@@ -7,11 +7,12 @@ const FRICTION = 1
 const JUMP = -500
 const GRAVITY = 1000.0
 
-const TIME_BETWEEN_SHOTS = 2.5
+var time_between_shots = 5.0
 const TIME_BETWEEN_BULLETS = 0.1
 
 var velocity = Vector2.ZERO
 var direction = -1
+var rng = RandomNumberGenerator.new()
 
 export (PackedScene) var bullet 
 
@@ -34,6 +35,9 @@ var time_till_second_shot = 0
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	animationState.start("Walk")
+	rng.randomize()
+	time_between_shots = rng.randf_range(1.6, 6.0)
+	 
 	
 func shoot():
 	var dir = round((player.position - position).normalized().x)
@@ -88,7 +92,7 @@ func _process(delta):
 
 		
 	time_to_shoot += delta
-	if time_to_shoot >= TIME_BETWEEN_SHOTS:
+	if time_to_shoot >= time_between_shots:
 		time_to_shoot = 0
 		time_till_second_shot = 0
 		shooting = true

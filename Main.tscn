@@ -21,7 +21,7 @@ texture = ExtResource( 2 )
 [node name="StaticBody2D" type="StaticBody2D" parent="Sprite"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite/StaticBody2D"]
-position = Vector2( -0.432373, 174.584 )
+position = Vector2( 451.568, 174.584 )
 shape = SubResource( 1 )
 one_way_collision_margin = 0.0
 
@@ -45,7 +45,13 @@ limit_bottom = 360
 [node name="Enemies" type="Node" parent="."]
 
 [node name="BigGunEnemy" parent="Enemies" instance=ExtResource( 5 )]
-position = Vector2( 765, 185 )
+position = Vector2( 664.093, 123.615 )
+
+[node name="BigGunEnemy2" parent="Enemies" instance=ExtResource( 5 )]
+position = Vector2( 1532.86, 276.709 )
+
+[node name="BigGunEnemy3" parent="Enemies" instance=ExtResource( 5 )]
+position = Vector2( 777.613, 298.521 )
 
 [node name="HUD" parent="." instance=ExtResource( 6 )]
 
