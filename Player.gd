@@ -20,7 +20,7 @@ var direction = 1
 onready var animationPlayer = $AnimationPlayer
 onready var animationTree = $AnimationTree
 onready var animationState = animationTree.get("parameters/playback")
-export (PackedScene) var bullet 
+export (PackedScene) var bullet3
 var flag = false
 
 # Declare member variables here. Examples:
@@ -48,7 +48,10 @@ func _ready():
 #	pass
 
 func _process(delta):
-
+	
+	#if is_colliding():
+	#	print(get_collider())
+		
 	# Obtain from ticks.
 	var time = (OS.get_ticks_usec() - time_begin) / 1000000.0;
 	# Compensate for latency.
@@ -74,7 +77,7 @@ func _process(delta):
 		
 func shoot():
 	#print(BPM)
-	var shot = bullet.instance()
+	var shot = bullet3.instance()
 	shot.set_direction(direction)
 	get_node("/root/Main").add_child(shot)
 	shot.global_position = self.global_position
@@ -128,3 +131,11 @@ func attack_animation_finished():
 	
 func set_sprite_position():
 	$Sprite.position.x = direction * $Sprite.position.x;
+
+
+func _on_Player_input_event(viewport, event, shape_idx):
+	print("event")
+	pass # Replace with function body.
+	
+func imhit():
+	print("aahhhh")

@@ -378,6 +378,8 @@ graph_offset = Vector2( -1371.73, -100.657 )
 [sub_resource type="AudioStreamSample" id=34]
 
 [node name="Player" type="KinematicBody2D"]
+input_pickable = true
+collision_mask = 2147483655
 script = ExtResource( 1 )
 __meta__ = {
 "_edit_group_": true
@@ -413,3 +415,4 @@ position = Vector2( -35.5401, 0.33371 )
 [node name="Voice" type="AudioStreamPlayer2D" parent="."]
 stream = SubResource( 34 )
 script = ExtResource( 3 )
+[connection signal="input_event" from="." to="." method="_on_Player_input_event"]

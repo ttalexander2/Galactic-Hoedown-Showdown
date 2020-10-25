@@ -14,12 +14,10 @@ func _ready():
 
 func set_direction(x):
 	direction.x = x
-
+	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	#direction = direction.move_toward(direction * SPEED, SPEED * delta)
-	pass
-
+#func _process(delta):
+#	pass
 func _physics_process(delta):
 	position.x += direction.x * SPEED * delta
 
@@ -29,5 +27,6 @@ func destroy():
 
 
 func _on_Area2D_body_entered(body):
-	if body == player:
-		print("fuck ya")
+	print("shot bad guy?")
+	if body != player:
+		body.die()

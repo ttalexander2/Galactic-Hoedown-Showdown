@@ -3,7 +3,7 @@
 [ext_resource path="res://Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://assets/Wooden_Wall_Texture_2.png" type="Texture" id=2]
 [ext_resource path="res://BrickBlock.tscn" type="PackedScene" id=3]
-[ext_resource path="res://Bullet.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Bullet3.tscn" type="PackedScene" id=4]
 [ext_resource path="res://BigGunEnemy.tscn" type="PackedScene" id=5]
 
 [sub_resource type="RectangleShape2D" id=1]
@@ -32,7 +32,7 @@ position = Vector2( 453.256, 154.779 )
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
 position = Vector2( 319.924, 177.444 )
-bullet = ExtResource( 4 )
+bullet3 = ExtResource( 4 )
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 current = true
