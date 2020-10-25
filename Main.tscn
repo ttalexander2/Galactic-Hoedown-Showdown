@@ -1,4 +1,8 @@
+<<<<<<< HEAD
+[gd_scene load_steps=30 format=2]
+=======
 [gd_scene load_steps=27 format=2]
+>>>>>>> 051e8463d71c18230872a26586c2af9e2cc02e8b
 
 [ext_resource path="res://Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://LevelPrefabs/Wall1.tscn" type="PackedScene" id=2]
@@ -27,6 +31,18 @@
 [ext_resource path="res://LevelPrefabs/Floor2Wide1.tscn" type="PackedScene" id=25]
 [ext_resource path="res://LevelPrefabs/Floor2Wide2.tscn" type="PackedScene" id=26]
 
+<<<<<<< HEAD
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 5.57153, 89.686 )
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 248.924, 9.1701 )
+
+[sub_resource type="RectangleShape2D" id=3]
+extents = Vector2( 223.558, 10 )
+
+=======
+>>>>>>> 051e8463d71c18230872a26586c2af9e2cc02e8b
 [node name="Main" type="Node2D"]
 script = ExtResource( 7 )
 enemy = ExtResource( 5 )
@@ -59,6 +75,34 @@ position = Vector2( 427.8, 222.032 )
 
 [node name="Wall4" parent="LevelStruct" instance=ExtResource( 2 )]
 position = Vector2( 2239.94, 189.051 )
+z_index = -3
+
+[node name="Wall5" parent="LevelStruct" instance=ExtResource( 2 )]
+position = Vector2( 2879.99, 189.098 )
+z_index = -3
+
+[node name="Wall6" parent="LevelStruct" instance=ExtResource( 2 )]
+position = Vector2( 3519.71, 189.098 )
+z_index = -3
+
+[node name="Wall7" parent="LevelStruct" instance=ExtResource( 10 )]
+position = Vector2( 4159.71, 189.098 )
+z_index = -3
+
+[node name="Wall8" parent="LevelStruct" instance=ExtResource( 10 )]
+position = Vector2( 4799.71, 189.098 )
+z_index = -3
+
+[node name="Wall9" parent="LevelStruct" instance=ExtResource( 2 )]
+position = Vector2( 5439.67, 189.098 )
+z_index = -3
+
+[node name="Wall10" parent="LevelStruct" instance=ExtResource( 2 )]
+position = Vector2( 6071.29, 189.098 )
+z_index = -3
+
+[node name="Wall11" parent="LevelStruct" instance=ExtResource( 2 )]
+position = Vector2( 6703.65, 189.098 )
 z_index = -3
 
 [node name="Piano" parent="LevelStruct" instance=ExtResource( 15 )]
@@ -176,6 +220,7 @@ position = Vector2( 1239.46, 263.221 )
 
 [node name="Floor2-1" parent="LevelStruct" instance=ExtResource( 22 )]
 position = Vector2( 1370.2, 263.231 )
+z_index = -1
 
 [node name="Floor2Wide1" parent="LevelStruct/Floor2-1" instance=ExtResource( 25 )]
 position = Vector2( 449.992, -0.00909424 )
@@ -185,15 +230,19 @@ position = Vector2( 180.05, 0.0793152 )
 
 [node name="Railing" parent="LevelStruct/Floor2-1" instance=ExtResource( 21 )]
 position = Vector2( 538.602, -109.045 )
+z_index = 3
 
 [node name="Railing2" parent="LevelStruct/Floor2-1" instance=ExtResource( 21 )]
 position = Vector2( 469.58, -109.039 )
+z_index = 3
 
 [node name="Railing3" parent="LevelStruct/Floor2-1" instance=ExtResource( 21 )]
 position = Vector2( 400.482, -109.023 )
+z_index = 3
 
 [node name="Railing4" parent="LevelStruct/Floor2-1" instance=ExtResource( 21 )]
 position = Vector2( 354.305, -109.02 )
+z_index = 3
 
 [node name="Chandelier2" parent="LevelStruct" instance=ExtResource( 19 )]
 position = Vector2( 2110.83, 70.4056 )
@@ -203,6 +252,71 @@ position = Vector2( 1239.46, 263.221 )
 
 [node name="PoolTable2" parent="LevelStruct" instance=ExtResource( 16 )]
 position = Vector2( 2336.88, 331.109 )
+
+[node name="Leftmost wall" type="CollisionShape2D" parent="LevelStruct"]
+position = Vector2( -10.6066, 118.087 )
+rotation = 1.5708
+shape = SubResource( 2 )
+one_way_collision = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LevelStruct"]
+position = Vector2( -224.153, 346.482 )
+shape = SubResource( 3 )
+
+[node name="Floor2Wide1" parent="LevelStruct" instance=ExtResource( 25 )]
+position = Vector2( 2528.89, 263.127 )
+z_index = -2
+
+[node name="Floor2Wide1" parent="LevelStruct/Floor2Wide1" instance=ExtResource( 25 )]
+position = Vector2( 540.477, 0.0832825 )
+
+[node name="Railing" parent="LevelStruct/Floor2Wide1/Floor2Wide1" instance=ExtResource( 21 )]
+position = Vector2( -89.9495, -108.603 )
+z_index = 3
+
+[node name="Railing" parent="LevelStruct/Floor2Wide1" instance=ExtResource( 22 )]
+position = Vector2( 269.784, 0.146057 )
+
+[node name="Railing" parent="LevelStruct/Floor2Wide1/Railing" instance=ExtResource( 21 )]
+position = Vector2( 0.0812988, -108.199 )
+z_index = 3
+
+[node name="Chandelier" parent="LevelStruct/Floor2Wide1" instance=ExtResource( 19 )]
+position = Vector2( 732.467, -196.418 )
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="LevelStruct/Floor2Wide1"]
+position = Vector2( 732.538, -343.262 )
+shape = SubResource( 1 )
+
+[node name="Railing2" parent="LevelStruct/Floor2Wide1" instance=ExtResource( 21 )]
+position = Vector2( 89.9758, -108.652 )
+z_index = 3
+
+[node name="Floor2Wide3" parent="LevelStruct" instance=ExtResource( 25 )]
+position = Vector2( 4584.78, 262.995 )
+
+[node name="Floor2Wide2" parent="LevelStruct/Floor2Wide3" instance=ExtResource( 26 )]
+position = Vector2( 270.155, -0.476654 )
+
+[node name="StaticBody2D" parent="LevelStruct/Floor2Wide3" instance=ExtResource( 22 )]
+position = Vector2( 450.036, -0.476685 )
+
+[node name="Stairs" parent="LevelStruct/Floor2Wide3" instance=ExtResource( 20 )]
+position = Vector2( 579.751, -0.639496 )
+scale = Vector2( -1, 1 )
+
+[node name="Stairs3" parent="LevelStruct" instance=ExtResource( 20 )]
+position = Vector2( 3753.96, 263.129 )
+z_index = -2
+
+[node name="Floor2Wide1" parent="LevelStruct/Stairs3" instance=ExtResource( 25 )]
+position = Vector2( 491.099, 0.047 )
+
+[node name="Floor2Wide2" parent="LevelStruct/Stairs3" instance=ExtResource( 25 )]
+position = Vector2( 220.978, 0.047 )
+
+[node name="Floor2Wide2" parent="LevelStruct" instance=ExtResource( 25 )]
+position = Vector2( 6888.5, 263.044 )
 
 [node name="Blocks" type="Node" parent="."]
 
