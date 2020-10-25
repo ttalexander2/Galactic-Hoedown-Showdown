@@ -4,6 +4,8 @@ extends Node2D
 # Declare member variables here. Examples:
 # var a = 2
 # var b = "text"
+export (PackedScene) var enemy
+
 onready var hud = $HUD
 var score = 0
 
@@ -20,7 +22,12 @@ var score_achieved = [
 	false,
 ]
 
+var rng = RandomNumberGenerator.new()
 onready var player = get_node("/root/Main/Player")
+onready var playerSpawn = [get_node("/root/Main/Player/Spawn0"),
+					get_node("/root/Main/Player/Spawn1"),
+					get_node("/root/Main/Player/Spawn2"),
+					get_node("/root/Main/Player/Spawn3")]
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -72,3 +79,9 @@ func _on_ScoreTimer_timeout():
 	if $Player.lives > 0:
 		score += 1
 		hud.update_score(score)
+
+func spawnEnemies():
+	var index = rng.randi_range(0,3)
+	var bg = enemy.instance()
+	get_node("/root/Main").add_child(bg)
+	bg.global_position = playerSpawn[index].global_position
