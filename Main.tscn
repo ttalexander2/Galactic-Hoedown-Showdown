@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=2]
+[gd_scene load_steps=21 format=2]
 
 [ext_resource path="res://Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://LevelPrefabs/Wall1.tscn" type="PackedScene" id=2]
@@ -19,6 +19,7 @@
 [ext_resource path="res://LevelPrefabs/WineglassFull.tscn" type="PackedScene" id=17]
 [ext_resource path="res://LevelPrefabs/SarspShelf.tscn" type="PackedScene" id=18]
 [ext_resource path="res://LevelPrefabs/Chandelier.tscn" type="PackedScene" id=19]
+[ext_resource path="res://LevelPrefabs/Stairs.tscn" type="PackedScene" id=20]
 
 [node name="Main" type="Node2D"]
 script = ExtResource( 7 )
@@ -125,7 +126,7 @@ limit_bottom = 360
 [node name="Enemies" type="Node" parent="."]
 
 [node name="BigGunEnemy2" parent="Enemies" instance=ExtResource( 5 )]
-position = Vector2( 1210.58, 286.223 )
+position = Vector2( 1274.08, 56.0496 )
 
 [node name="BigGunEnemy3" parent="Enemies" instance=ExtResource( 5 )]
 position = Vector2( 978.296, 271.039 )
@@ -139,4 +140,7 @@ autostart = true
 stream = ExtResource( 8 )
 volume_db = -10.0
 autoplay = true
+
+[node name="Stairs" parent="." instance=ExtResource( 20 )]
+position = Vector2( 1239.46, 263.221 )
 [connection signal="timeout" from="ScoreTimer" to="." method="_on_ScoreTimer_timeout"]
