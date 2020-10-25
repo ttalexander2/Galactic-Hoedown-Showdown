@@ -5,7 +5,7 @@ extends Area2D
 # var a = 2
 # var b = "text"
 var direction = Vector2.ZERO
-const SPEED = 500;
+const SPEED = 250;
 onready var player = get_node("/root/Main/Player")
 
 # Called when the node enters the scene tree for the first time.
