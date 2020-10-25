@@ -124,7 +124,7 @@ func move_state(delta):
 		animationState.travel("Idle")
 		velocity = Vector2(velocity.move_toward(Vector2.ZERO, FRICTION * delta).x, velocity.y)
 		
-	if Input.is_action_just_pressed("ui_up") && has_jump > 0:
+	if Input.is_action_just_pressed("ui_up") and has_jump > 0:
 		has_jump = 0;
 		velocity.y = JUMP
 		animationState.travel("Jump");

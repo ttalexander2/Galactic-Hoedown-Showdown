@@ -184,11 +184,11 @@ auto_advance = true
 
 [sub_resource type="AnimationNodeStateMachineTransition" id=31]
 
-[sub_resource type="AnimationNodeStateMachineTransition" id=35]
+[sub_resource type="AnimationNodeStateMachineTransition" id=32]
 switch_mode = 2
 auto_advance = true
 
-[sub_resource type="AnimationNodeStateMachine" id=32]
+[sub_resource type="AnimationNodeStateMachine" id=33]
 states/Fall/node = SubResource( 9 )
 states/Fall/position = Vector2( -1038.4, 374.351 )
 states/Idle/node = SubResource( 10 )
@@ -203,13 +203,13 @@ states/Run/node = SubResource( 14 )
 states/Run/position = Vector2( -634.734, 144.351 )
 states/Run_Fire/node = SubResource( 15 )
 states/Run_Fire/position = Vector2( -169.396, 144.351 )
-transitions = [ "Jump", "Jump_Fire", SubResource( 16 ), "Fall", "Jump_Fire", SubResource( 17 ), "Jump_Fire", "Fall", SubResource( 18 ), "Jump", "Fall", SubResource( 19 ), "Fall", "Idle", SubResource( 20 ), "Idle", "Idle_Fire", SubResource( 21 ), "Idle_Fire", "Idle", SubResource( 22 ), "Idle", "Run", SubResource( 23 ), "Run", "Idle", SubResource( 24 ), "Run", "Jump", SubResource( 25 ), "Jump", "Run", SubResource( 26 ), "Idle", "Jump", SubResource( 27 ), "Jump", "Idle", SubResource( 28 ), "Run", "Run_Fire", SubResource( 29 ), "Run_Fire", "Run", SubResource( 30 ), "Fall", "Run", SubResource( 31 ), "Jump_Fire", "Jump", SubResource( 35 ) ]
+transitions = [ "Jump", "Jump_Fire", SubResource( 16 ), "Fall", "Jump_Fire", SubResource( 17 ), "Jump_Fire", "Fall", SubResource( 18 ), "Jump", "Fall", SubResource( 19 ), "Fall", "Idle", SubResource( 20 ), "Idle", "Idle_Fire", SubResource( 21 ), "Idle_Fire", "Idle", SubResource( 22 ), "Idle", "Run", SubResource( 23 ), "Run", "Idle", SubResource( 24 ), "Run", "Jump", SubResource( 25 ), "Jump", "Run", SubResource( 26 ), "Idle", "Jump", SubResource( 27 ), "Jump", "Idle", SubResource( 28 ), "Run", "Run_Fire", SubResource( 29 ), "Run_Fire", "Run", SubResource( 30 ), "Fall", "Run", SubResource( 31 ), "Jump_Fire", "Jump", SubResource( 32 ) ]
 start_node = "Idle"
 graph_offset = Vector2( -1313.69, -98.2065 )
 
-[sub_resource type="AnimationNodeStateMachinePlayback" id=33]
+[sub_resource type="AnimationNodeStateMachinePlayback" id=34]
 
-[sub_resource type="AudioStreamSample" id=34]
+[sub_resource type="AudioStreamSample" id=35]
 
 [node name="Player" type="KinematicBody2D"]
 input_pickable = true
@@ -225,7 +225,7 @@ texture = ExtResource( 2 )
 offset = Vector2( 10, 0 )
 vframes = 6
 hframes = 7
-frame = 5
+frame = 7
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( 0.093, 7.5 )
@@ -241,15 +241,15 @@ anims/Run = SubResource( 7 )
 anims/Run_Fire = SubResource( 8 )
 
 [node name="AnimationTree" type="AnimationTree" parent="."]
-tree_root = SubResource( 32 )
+tree_root = SubResource( 33 )
 anim_player = NodePath("../AnimationPlayer")
 active = true
-parameters/playback = SubResource( 33 )
+parameters/playback = SubResource( 34 )
 
 [node name="Position2D" type="Position2D" parent="."]
 position = Vector2( -35.5401, 0.33371 )
 
 [node name="Voice" type="AudioStreamPlayer2D" parent="."]
-stream = SubResource( 34 )
+stream = SubResource( 35 )
 script = ExtResource( 3 )
 [connection signal="input_event" from="." to="." method="_on_Player_input_event"]
