@@ -101,10 +101,10 @@ custom_colors/font_outline_modulate = Color( 1, 1, 1, 1 )
 custom_colors/font_color_shadow = Color( 1, 1, 1, 1 )
 custom_constants/shadow_offset_x = 1
 custom_constants/shadow_as_outline = 1
-text = "Them robots took my sarsparilla!
-Your space cowboy automatically 
-shoots his gun,
-Destroy all robots!"
+text = "Harry took my sarsparilla!
+
+Time to teach these polecats a
+lesson..."
 __meta__ = {
 "_edit_use_anchors_": false
 }
