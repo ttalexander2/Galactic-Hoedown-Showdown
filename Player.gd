@@ -34,7 +34,7 @@ var time_since_last_shot = 0;
 
 var has_jump = 1;
 
-var lives = 3
+var lives = 10
 
 
 
