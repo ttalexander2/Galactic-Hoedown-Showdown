@@ -46,33 +46,43 @@ func _process(delta):
 	if !score_achieved[9] and score >= 1000:
 		score_achieved[9] = true
 		player.play_score_sound()
+		$EnemySpawnTimer.wait_time /= 2
 	elif !score_achieved[9] and score >= 900:
 		score_achieved[8] = true
 		player.play_score_sound()
+		$EnemySpawnTimer.wait_time /= 2
 	elif !score_achieved[7] and score >= 800:
 		score_achieved[7] = true
 		player.play_score_sound()
+		$EnemySpawnTimer.wait_time /= 2
 	elif !score_achieved[6] and score >= 700:
 		score_achieved[6] = true
 		player.play_score_sound()
+		$EnemySpawnTimer.wait_time /= 2
 	elif !score_achieved[5] and score >= 600:
 		score_achieved[5] = true
 		player.play_score_sound()
+		$EnemySpawnTimer.wait_time /= 2
 	elif !score_achieved[4] and score >= 500:
 		score_achieved[4] = true
 		player.play_score_sound()
+		$EnemySpawnTimer.wait_time /= 2
 	elif !score_achieved[3] and score >= 400:
 		score_achieved[3] = true
 		player.play_score_sound()
+		$EnemySpawnTimer.wait_time /= 2
 	elif !score_achieved[2] and score >= 300:
 		score_achieved[2] = true
 		player.play_score_sound()
+		$EnemySpawnTimer.wait_time = 2
 	elif !score_achieved[1] and score >= 200:
 		score_achieved[1] = true
 		player.play_score_sound()
+		$EnemySpawnTimer.wait_time = 3
 	elif !score_achieved[0] and score >= 100:
 		score_achieved[0] = true
 		player.play_score_sound()
+		$EnemySpawnTimer.wait_time = 3.5
 
 
 func _on_ScoreTimer_timeout():
