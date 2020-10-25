@@ -10,6 +10,8 @@ const GRAVITY = 1000.0
 var velocity = Vector2.ZERO
 var direction = -1
 
+export (PackedScene) var bullet 
+
 # Declare member variables here. Examples:
 # var a = 2
 # var b = "text"
@@ -28,8 +30,15 @@ func aim():
 	shooting = true
 	shootingTime.start()
 	
+func shoot():
+	direction = (player.position - position).normalized().x
+	var shot = bullet.instance()
+	shot.set_direction(direction)
+	get_node("/root/Main").add_child(shot)
+	shot.global_position = self.global_position
+	
 func move():
-	print("shooty shoot")
+	shoot()
 	shooting = false
 	betweenShots.start()
 	
@@ -44,7 +53,7 @@ func _process(delta):
 		
 	if !shooting:
 		velocity = velocity.move_toward(playerDirection * MAX_SPEED * delta * SPEED, ACCELERATION * delta)
-		
+		direction = velocity.x
 		
 	else:
 		velocity = Vector2.ZERO
