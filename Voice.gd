@@ -73,7 +73,8 @@ func play_score_sound():
 	play()
 	
 func play_death_sound():
-	var sound = samples_on_death.keys()[randi() % samples_on_death.keys().size()]
-	stream = samples_on_death[sound]
-	play()
+	if not self.playing:
+		var sound = samples_on_death.keys()[randi() % samples_on_death.keys().size()]
+		stream = samples_on_death[sound]
+		play()
 	

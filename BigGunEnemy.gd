@@ -48,15 +48,25 @@ func shoot():
 	get_node("/root/Main").add_child(shot)
 	shot.global_position = self.global_position
 	
+	
 func die():
 	main.killed_mob()
 	self.queue_free();
+	
+func boom():
+	animationState.travel("Boom")
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	playerDirection = (player.position - position).normalized() * MAX_SPEED
 	#print(playerDirection)
 	var animation = animationState.get_current_node()
+	
+	if animation == "Boom" or animation == "Big Boom":
+		return
+		
+	if animation == "Die":
+		die()
 		
 	if animation == "Walk":
 		velocity = Vector2(velocity.move_toward(playerDirection * MAX_SPEED * delta * SPEED, ACCELERATION * delta).x, velocity.y)
