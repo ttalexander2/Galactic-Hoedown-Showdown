@@ -25,6 +25,10 @@ var score_achieved = [
 var rng = RandomNumberGenerator.new()
 onready var player = get_node("/root/Main/Player")
 onready var fasterLabel = get_node("/root/Main/HUD/FasterLabel")
+onready var deadNode = get_node("/root/Main/HUD/DeadNode/DeadSprite")
+onready var deadColor = get_node("/root/Main/HUD/ColorRect")
+onready var deadAnimation = get_node("/root/Main/HUD/DeadNode/AnimationPlayer")
+var didDie = false
 onready var playerSpawn = [get_node("/root/Main/Player/Spawn0"),
 					get_node("/root/Main/Player/Spawn1"),
 					get_node("/root/Main/Player/Spawn2"),
@@ -34,6 +38,8 @@ onready var playerSpawn = [get_node("/root/Main/Player/Spawn0"),
 func _ready():
 	hud.update_score(score)
 	fasterLabel.hide()
+	deadNode.hide()
+	deadColor.hide()
 
 
 func killed_mob():
@@ -45,6 +51,11 @@ func killed_mob():
 #	pass
 
 func _process(delta):
+	if $Player.lives < 0 and !didDie:
+		deadNode.show()
+		deadAnimation.play("dead")
+		deadColor.show()
+		didDie = true
 	if !score_achieved[9] and score >= 1000:
 		score_achieved[9] = true
 		player.play_score_sound()
