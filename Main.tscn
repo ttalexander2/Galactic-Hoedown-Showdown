@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=2]
+[gd_scene load_steps=27 format=2]
 
 [ext_resource path="res://Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://LevelPrefabs/Wall1.tscn" type="PackedScene" id=2]
@@ -25,6 +25,7 @@
 [ext_resource path="res://LevelPrefabs/WineglassEmpty.tscn" type="PackedScene" id=23]
 [ext_resource path="res://LevelPrefabs/EmptyShelf.tscn" type="PackedScene" id=24]
 [ext_resource path="res://LevelPrefabs/Floor2Wide1.tscn" type="PackedScene" id=25]
+[ext_resource path="res://LevelPrefabs/Floor2Wide2.tscn" type="PackedScene" id=26]
 
 [node name="Main" type="Node2D"]
 script = ExtResource( 7 )
@@ -162,11 +163,17 @@ rotation = -1.29503
 [node name="Stairs" parent="." instance=ExtResource( 20 )]
 position = Vector2( 1239.46, 263.221 )
 
-[node name="StaticBody2D2" parent="." instance=ExtResource( 22 )]
+[node name="Floor2" parent="." instance=ExtResource( 22 )]
 position = Vector2( 1370.2, 262.455 )
 
-[node name="StaticBody2D" parent="." instance=ExtResource( 25 )]
-position = Vector2( 1549.98, 263.251 )
+[node name="Floor2Wide1" parent="Floor2" instance=ExtResource( 25 )]
+position = Vector2( 449.992, -0.00909424 )
+
+[node name="Floor2Wide2" parent="Floor2" instance=ExtResource( 26 )]
+position = Vector2( 180.05, 0.0793152 )
+
+[node name="Wall1" parent="Floor2" instance=ExtResource( 2 )]
+position = Vector2( 868.687, -72.3082 )
 
 [node name="Blocks" type="Node" parent="."]
 
