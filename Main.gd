@@ -51,6 +51,11 @@ func killed_mob():
 #	pass
 
 func _process(delta):
+	
+	if $Player.lives < 0 and deadAnimation.is_playing() == false and didDie:
+		if (Input.is_action_just_pressed("ui_accept")):
+			get_tree().change_scene("res://Main.tscn")
+	
 	if $Player.lives < 0 and !didDie:
 		deadNode.show()
 		deadAnimation.play("dead")
