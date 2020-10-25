@@ -3,8 +3,8 @@ extends KinematicBody2D
 const SPEED = 45000
 const MAX_SPEED = 50000
 const FRICTION = 20
-const JUMP = -900
-const GRAVITY = 2500
+const JUMP = -750
+const GRAVITY = 5000
 
 enum {
 	MOVE,
@@ -57,6 +57,17 @@ func _ready():
 
 	time_begin = OS.get_ticks_usec();
 	animationTree.active = true
+	
+func _physics_process(delta):
+	match state:
+		MOVE:
+			if lives > 0:
+				move_state(delta)
+		ROLL:
+			pass
+		ATTACK:
+			if lives > 0:
+				attack_state(delta)
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -80,16 +91,6 @@ func _process(delta):
 		
 	if (Input.is_action_just_pressed("ui_page_up")):
 		$Voice.play_score_sound()
-		
-	match state:
-		MOVE:
-			if lives > 0:
-				move_state(delta)
-		ROLL:
-			pass
-		ATTACK:
-			if lives > 0:
-				attack_state(delta)
 			
 			
 	if (lives > 0 and time_since_last_shot >= 10000.0/BPM*delta):
@@ -166,6 +167,9 @@ func move_state(delta):
 		
 	velocity = move_and_slide(velocity)
 	
+	if (animation == "Jump" and velocity.y == 0):
+		animationState.travel("Fall")
+	
 	if (velocity.y < 0):
 		animationState.travel("Jump");
 	
@@ -197,7 +201,7 @@ func hit():
 		return
 	lives -= 1
 	if lives > -1:
-		velocity += Vector2(55000*direction, -150000) * 0.006;
+		velocity += Vector2(5500*direction, -15000) * 0.006;
 		playerHealth[lives].hide()
 		animationState.travel("Hurt")
 		$Voice.play_hurt_sound()
