@@ -39,4 +39,5 @@ func instructions():
 func _process(delta):
 	if readyToStart:
 		if Input.is_action_just_pressed("ui_accept"):
+			print(readyToStart)
 			get_tree().change_scene("res://Main.tscn")
