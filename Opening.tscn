@@ -70,6 +70,23 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="PushToStart" type="Label" parent="."]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -155.672
+margin_top = -131.079
+margin_right = 157.328
+margin_bottom = -16.079
+custom_fonts/font = SubResource( 2 )
+text = "Push SPACE
+to start"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="TitleLabel" type="Label" parent="."]
 anchor_right = 1.0
 margin_bottom = 56.0
@@ -81,9 +98,25 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="Instructions" type="Label" parent="."]
+anchor_right = 1.0
+margin_bottom = 56.0
+custom_fonts/font = SubResource( 2 )
+text = "Them robots took my
+sarsparilla!
+Destroy them all!"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 4 )
 volume_db = -10.0
 autoplay = true
+
+[node name="StartTimer" type="Timer" parent="."]
+wait_time = 4.0
+one_shot = true
 [connection signal="timeout" from="PresentsTimer" to="." method="presents"]
 [connection signal="timeout" from="TitleTimer" to="." method="title"]
+[connection signal="timeout" from="StartTimer" to="." method="instructions"]

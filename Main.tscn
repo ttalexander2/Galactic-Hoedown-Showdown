@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=2]
+[gd_scene load_steps=27 format=2]
 
 [ext_resource path="res://Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://LevelPrefabs/Wall1.tscn" type="PackedScene" id=2]
@@ -25,6 +25,9 @@
 [ext_resource path="res://LevelPrefabs/EmptyShelf.tscn" type="PackedScene" id=24]
 [ext_resource path="res://LevelPrefabs/Floor2Wide1.tscn" type="PackedScene" id=25]
 [ext_resource path="res://LevelPrefabs/Floor2Wide2.tscn" type="PackedScene" id=26]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 10, 184 )
 
 [node name="Main" type="Node2D"]
 script = ExtResource( 7 )
@@ -202,5 +205,22 @@ autoplay = true
 
 [node name="Stairs" parent="." instance=ExtResource( 20 )]
 position = Vector2( 1239.46, 263.221 )
+
+[node name="SpawnIncreaseLabel" type="Timer" parent="."]
+wait_time = 2.0
+one_shot = true
+
+[node name="LeftLevelBoundry" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LeftLevelBoundry"]
+position = Vector2( 8, 184 )
+shape = SubResource( 1 )
+
+[node name="RightLevelBoundry" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RightLevelBoundry"]
+position = Vector2( 2552, 184 )
+shape = SubResource( 1 )
 [connection signal="timeout" from="EnemySpawnTimer" to="." method="spawnEnemies"]
 [connection signal="timeout" from="ScoreTimer" to="." method="_on_ScoreTimer_timeout"]
+[connection signal="timeout" from="SpawnIncreaseLabel" to="." method="fasterLabelShown"]

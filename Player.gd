@@ -188,7 +188,8 @@ func _on_Player_input_event(viewport, event, shape_idx):
 	
 func hit():
 	lives -= 1
-	playerHealth[lives].hide()
+	if lives > -1:
+		playerHealth[lives].hide()
 	print("Lives: " + str(lives))
 	if lives < 1:
 		play_death_sound()

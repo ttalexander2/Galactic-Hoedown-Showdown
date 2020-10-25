@@ -12,6 +12,8 @@ const BPM = 150.0;
 func _ready():
 	$PresentsLabel.hide()
 	$TitleLabel.hide()
+	$PushToStart.hide()
+	$Instructions.hide()
 	$AnimationPlayer.play("LogoFadeIn")
 
 
@@ -22,6 +24,13 @@ func title():
 	$LogoSprite.hide()
 	$PresentsLabel.hide()
 	$TitleLabel.show()
+	$StartTimer.start()
+	#readyToStart = true
+	
+func instructions():
+	$TitleLabel.hide()
+	$Instructions.show()
+	$PushToStart.show()
 	readyToStart = true
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
