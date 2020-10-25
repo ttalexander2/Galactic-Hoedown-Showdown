@@ -232,5 +232,9 @@ autostart = true
 stream = ExtResource( 8 )
 volume_db = -10.0
 autoplay = true
+
+[node name="SpawnIncreaseLabel" type="Timer" parent="."]
+wait_time = 2.0
 [connection signal="timeout" from="EnemySpawnTimer" to="." method="spawnEnemies"]
 [connection signal="timeout" from="ScoreTimer" to="." method="_on_ScoreTimer_timeout"]
+[connection signal="timeout" from="SpawnIncreaseLabel" to="." method="fasterLabelShown"]

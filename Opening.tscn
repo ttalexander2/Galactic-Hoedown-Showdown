@@ -82,7 +82,6 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-
 [node name="TitleSprite" type="Sprite" parent="."]
 position = Vector2( 319.444, 179.45 )
 texture = ExtResource( 5 )
@@ -130,16 +129,16 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 4 )
 volume_db = -10.0
 autoplay = true
 
-
 [node name="StartTimer" type="Timer" parent="."]
 wait_time = 2.0
 one_shot = true
 
+[node name="SpawnIncreaseLabel" type="Timer" parent="."]
 [connection signal="timeout" from="PresentsTimer" to="." method="presents"]
 [connection signal="timeout" from="TitleTimer" to="." method="title"]
+[connection signal="timeout" from="StartTimer" to="." method="instructions"]
