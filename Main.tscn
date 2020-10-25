@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=2]
+[gd_scene load_steps=27 format=2]
 
 [ext_resource path="res://Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://LevelPrefabs/Wall1.tscn" type="PackedScene" id=2]
@@ -20,6 +20,7 @@
 [ext_resource path="res://LevelPrefabs/SarspShelf.tscn" type="PackedScene" id=18]
 [ext_resource path="res://LevelPrefabs/Chandelier.tscn" type="PackedScene" id=19]
 [ext_resource path="res://LevelPrefabs/Stairs.tscn" type="PackedScene" id=20]
+[ext_resource path="res://LevelPrefabs/Railing.tscn" type="PackedScene" id=21]
 [ext_resource path="res://LevelPrefabs/Floor2.tscn" type="PackedScene" id=22]
 [ext_resource path="res://LevelPrefabs/WineglassEmpty.tscn" type="PackedScene" id=23]
 [ext_resource path="res://LevelPrefabs/EmptyShelf.tscn" type="PackedScene" id=24]
@@ -47,8 +48,22 @@ position = Vector2( -110, 120.634 )
 position = Vector2( 959.95, 189.058 )
 z_index = -3
 
+[node name="Wall3" parent="LevelStruct" instance=ExtResource( 10 )]
+position = Vector2( 1599.94, 189.052 )
+
+[node name="Clock" parent="LevelStruct/Wall3" instance=ExtResource( 12 )]
+position = Vector2( 29.3779, -102.355 )
+
+[node name="Piano" parent="LevelStruct/Wall3/Clock" instance=ExtResource( 15 )]
+position = Vector2( 427.8, 222.032 )
+
+[node name="Wall4" parent="LevelStruct" instance=ExtResource( 2 )]
+position = Vector2( 2239.94, 189.051 )
+z_index = -3
+
 [node name="Piano" parent="LevelStruct" instance=ExtResource( 15 )]
 position = Vector2( 488.579, 308.533 )
+z_index = -1
 
 [node name="PoolTable" parent="LevelStruct" instance=ExtResource( 16 )]
 position = Vector2( 1035.53, 330.917 )
@@ -65,11 +80,10 @@ position = Vector2( 27.7795, -35.3197 )
 
 [node name="Bar 1" parent="LevelStruct" instance=ExtResource( 9 )]
 position = Vector2( 816.344, 275.339 )
-z_index = -1
+z_index = -2
 
 [node name="Stool" parent="LevelStruct/Bar 1" instance=ExtResource( 11 )]
 position = Vector2( -56.5907, 62.749 )
-z_index = 1
 
 [node name="WineglassShelf" parent="LevelStruct/Bar 1" instance=ExtResource( 3 )]
 position = Vector2( -45, -8 )
@@ -80,32 +94,32 @@ position = Vector2( -16.2118, 62.749 )
 [node name="Sarsp" parent="LevelStruct/Bar 1" instance=ExtResource( 13 )]
 position = Vector2( 6.14679, 26.0409 )
 
-[node name="Sarsp2" parent="LevelStruct/Bar 1" instance=ExtResource( 13 )]
-position = Vector2( 12.5684, 26.1401 )
+[node name="Sarsp" parent="LevelStruct/Bar 1/Sarsp" instance=ExtResource( 13 )]
+position = Vector2( -3.15009, -19.0483 )
 
-[node name="Sarsp" parent="LevelStruct/Bar 1/Sarsp2" instance=ExtResource( 13 )]
-position = Vector2( -9.57172, -19.1475 )
+[node name="Sarsp2" parent="LevelStruct/Bar 1/Sarsp" instance=ExtResource( 13 )]
+position = Vector2( 3.19952, -19.0483 )
 
-[node name="Sarsp2" parent="LevelStruct/Bar 1/Sarsp2" instance=ExtResource( 13 )]
-position = Vector2( -3.22211, -19.1475 )
+[node name="Sarsp3" parent="LevelStruct/Bar 1/Sarsp" instance=ExtResource( 13 )]
+position = Vector2( -0.0744629, -38.1963 )
 
-[node name="Sarsp3" parent="LevelStruct/Bar 1/Sarsp2" instance=ExtResource( 13 )]
-position = Vector2( -6.49609, -38.2955 )
+[node name="Sarsp4" parent="LevelStruct/Bar 1/Sarsp" instance=ExtResource( 13 )]
+position = Vector2( 6.42163, 0.0992126 )
 
-[node name="Radio" parent="LevelStruct/Bar 1/Sarsp2/Sarsp3" instance=ExtResource( 14 )]
-position = Vector2( -103.588, 41.253 )
-
-[node name="Sarsp3" parent="LevelStruct/Bar 1" instance=ExtResource( 13 )]
-position = Vector2( -0.112549, 26.077 )
+[node name="Sarsp5" parent="LevelStruct/Bar 1/Sarsp" instance=ExtResource( 13 )]
+position = Vector2( -6.25934, 0.0361023 )
 
 [node name="SarspShelf" parent="LevelStruct/Bar 1" instance=ExtResource( 18 )]
 position = Vector2( 52.0715, -7.17072 )
+z_index = -1
 
 [node name="WineglassFull" parent="LevelStruct/Bar 1" instance=ExtResource( 17 )]
 position = Vector2( 44.3567, 30.927 )
+z_index = 1
 
 [node name="WineglassFull2" parent="LevelStruct/Bar 1" instance=ExtResource( 17 )]
 position = Vector2( -80.7062, 31.0455 )
+z_index = 1
 
 [node name="Stool3" parent="LevelStruct/Bar 1" instance=ExtResource( 11 )]
 position = Vector2( 22.6557, 62.1608 )
@@ -118,6 +132,10 @@ position = Vector2( 98.4057, 62.4108 )
 
 [node name="Stool6" parent="LevelStruct/Bar 1" instance=ExtResource( 11 )]
 position = Vector2( -96.0943, 62.4108 )
+
+[node name="Radio" parent="LevelStruct/Bar 1" instance=ExtResource( 14 )]
+position = Vector2( -97.5157, 29.0976 )
+z_index = -1
 
 [node name="Chandelier" parent="LevelStruct" instance=ExtResource( 19 )]
 position = Vector2( 491.874, 70.8113 )
@@ -150,26 +168,44 @@ position = Vector2( 101.493, 62.5342 )
 position = Vector2( 52.0942, -5.52856 )
 
 [node name="Stool2" parent="LevelStruct/Bar 2" instance=ExtResource( 11 )]
-position = Vector2( -87.126, 66.991 )
+position = Vector2( 53.194, 66.991 )
 rotation = -1.29503
 
-[node name="Wall3" parent="LevelStruct" instance=ExtResource( 10 )]
-position = Vector2( 1599.94, 189.052 )
+[node name="PoolTable2" parent="LevelStruct" instance=ExtResource( 16 )]
 
-[node name="Stairs" parent="." instance=ExtResource( 20 )]
+[node name="Stairs" parent="LevelStruct" instance=ExtResource( 20 )]
 position = Vector2( 1239.46, 263.221 )
 
-[node name="Floor2" parent="." instance=ExtResource( 22 )]
-position = Vector2( 1370.2, 262.455 )
+[node name="Floor2-1" parent="LevelStruct" instance=ExtResource( 22 )]
+position = Vector2( 1370.2, 263.231 )
 
-[node name="Floor2Wide1" parent="Floor2" instance=ExtResource( 25 )]
+[node name="Floor2Wide1" parent="LevelStruct/Floor2-1" instance=ExtResource( 25 )]
 position = Vector2( 449.992, -0.00909424 )
 
-[node name="Floor2Wide2" parent="Floor2" instance=ExtResource( 26 )]
+[node name="Floor2Wide2" parent="LevelStruct/Floor2-1" instance=ExtResource( 26 )]
 position = Vector2( 180.05, 0.0793152 )
 
-[node name="Wall1" parent="Floor2" instance=ExtResource( 2 )]
-position = Vector2( 869.739, -73.4039 )
+[node name="Railing" parent="LevelStruct/Floor2-1" instance=ExtResource( 21 )]
+position = Vector2( 538.602, -109.045 )
+
+[node name="Railing2" parent="LevelStruct/Floor2-1" instance=ExtResource( 21 )]
+position = Vector2( 469.58, -109.039 )
+
+[node name="Railing3" parent="LevelStruct/Floor2-1" instance=ExtResource( 21 )]
+position = Vector2( 400.482, -109.023 )
+
+[node name="Railing4" parent="LevelStruct/Floor2-1" instance=ExtResource( 21 )]
+position = Vector2( 354.305, -109.02 )
+
+[node name="Chandelier2" parent="LevelStruct" instance=ExtResource( 19 )]
+position = Vector2( 2110.83, 70.4056 )
+
+[node name="Piano2" parent="LevelStruct" instance=ExtResource( 15 )]
+z_index = -1
+
+[node name="Stool" parent="LevelStruct/Piano2" instance=ExtResource( 11 )]
+position = Vector2( 1982.14, 336.719 )
+z_index = -1
 
 [node name="Blocks" type="Node" parent="."]
 
@@ -202,5 +238,8 @@ autoplay = true
 
 [node name="Stairs" parent="." instance=ExtResource( 20 )]
 position = Vector2( 1239.46, 263.221 )
+
+[node name="PoolTable" parent="." instance=ExtResource( 16 )]
+position = Vector2( 2336.88, 330.58 )
 [connection signal="timeout" from="EnemySpawnTimer" to="." method="spawnEnemies"]
 [connection signal="timeout" from="ScoreTimer" to="." method="_on_ScoreTimer_timeout"]
