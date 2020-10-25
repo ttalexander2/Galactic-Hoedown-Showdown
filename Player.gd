@@ -23,6 +23,17 @@ onready var animationState = animationTree.get("parameters/playback")
 export (PackedScene) var bullet3
 var flag = false
 
+onready var playerHealth = [get_node("/root/Main/HUD/Health1"),
+					get_node("/root/Main/HUD/Health2"),
+					get_node("/root/Main/HUD/Health3"),
+					get_node("/root/Main/HUD/Health4"),
+					get_node("/root/Main/HUD/Health5"),
+					get_node("/root/Main/HUD/Health6"),
+					get_node("/root/Main/HUD/Health7"),
+					get_node("/root/Main/HUD/Health8"),
+					get_node("/root/Main/HUD/Health9"),
+					get_node("/root/Main/HUD/Health10")]
+
 # Declare member variables here. Examples:
 # var a = 2
 # var b = "text"
@@ -177,6 +188,8 @@ func _on_Player_input_event(viewport, event, shape_idx):
 	
 func hit():
 	lives -= 1
+	if lives > -1:
+		playerHealth[lives].hide()
 	print("Lives: " + str(lives))
 	if lives < 1:
 		play_death_sound()

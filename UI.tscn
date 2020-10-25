@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://assets/Xolonium-Regular.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://UI.gd" type="Script" id=2]
+[ext_resource path="res://assets/sarsp.png" type="Texture" id=3]
 
 [sub_resource type="DynamicFont" id=1]
 size = 32
@@ -22,3 +23,59 @@ align = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="FasterLabel" type="Label" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -249.5
+margin_top = -59.5
+margin_right = 250.5
+margin_bottom = -3.5
+custom_fonts/font = SubResource( 1 )
+text = "Yeeha! They're coming faster!"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Health1" type="Sprite" parent="."]
+position = Vector2( 47.3431, 28.236 )
+texture = ExtResource( 3 )
+
+[node name="Health2" type="Sprite" parent="."]
+position = Vector2( 78.6599, 27.6877 )
+texture = ExtResource( 3 )
+
+[node name="Health3" type="Sprite" parent="."]
+position = Vector2( 111.245, 27.898 )
+texture = ExtResource( 3 )
+
+[node name="Health4" type="Sprite" parent="."]
+position = Vector2( 145.721, 27.6877 )
+texture = ExtResource( 3 )
+
+[node name="Health5" type="Sprite" parent="."]
+position = Vector2( 183.352, 28.3184 )
+texture = ExtResource( 3 )
+
+[node name="Health6" type="Sprite" parent="."]
+position = Vector2( 47.5641, 64.4004 )
+texture = ExtResource( 3 )
+
+[node name="Health7" type="Sprite" parent="."]
+position = Vector2( 78.9479, 64.6364 )
+texture = ExtResource( 3 )
+
+[node name="Health8" type="Sprite" parent="."]
+position = Vector2( 111.512, 64.4004 )
+texture = ExtResource( 3 )
+
+[node name="Health9" type="Sprite" parent="."]
+position = Vector2( 146.435, 64.1644 )
+texture = ExtResource( 3 )
+
+[node name="Health10" type="Sprite" parent="."]
+position = Vector2( 183.246, 63.6925 )
+texture = ExtResource( 3 )
